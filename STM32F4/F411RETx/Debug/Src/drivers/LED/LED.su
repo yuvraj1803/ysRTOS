@@ -1,0 +1,3 @@
+../Src/drivers/LED/LED.c:6:6:LED_INIT	4	static
+../Src/drivers/LED/LED.c:16:6:LED_ON	4	static
+../Src/drivers/LED/LED.c:21:6:LED_OFF	4	static
