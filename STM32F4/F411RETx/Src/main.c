@@ -12,12 +12,10 @@
 #include <stdio.h>
 
 #include "config/config.h"
-#include "drivers/LED/LED.h"
-#include "drivers/UART/UART.h"
 
 int main(void)
 {
 
-
+	__init__();
 
 }

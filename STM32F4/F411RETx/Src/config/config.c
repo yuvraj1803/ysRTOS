@@ -8,18 +8,20 @@
  *
  * */
 
-void __ENABLE_LED__(void){
-	__LED_INIT__ = 0x1;
+
+void __SET_MAX_THREADS__(uint32_t val){
+	if(RTOS_INITIALISED){
+		perror("Kernel already initialised. Cannot update variable");
+		exit(__SET_MAX_THREADS_FAIL__);
+	}
+	MAX_THREADS = val;
 }
 
-void __DISABLE_LED__(void){
-	__LED_INIT__ = 0x0;
+void __SET_STK_SIZE__(uint32_t stk_size){
+	if(RTOS_INITIALISED){
+		perror("Kernel already initialised. Cannot update variable");
+		exit(__SET_STK_SIZE_FAIL__);
+	}
+	STK_SIZE = stk_size;
 }
 
-void __ENABLE_UART__(void){
-	__UART_INIT__ = 0x1;
-}
-
-void DISABLE_UART__(void){
-	__UART_INIT__ = 0x0;
-}
