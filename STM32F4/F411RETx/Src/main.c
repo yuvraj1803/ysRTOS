@@ -8,16 +8,20 @@
  */
 
 #include <stdint.h>
-#include "../config/config.h"
-#include "../drivers/LED/LED.h"
+#include <stdlib.h>
+
+#include "config/config.h"
+#include "drivers/LED/LED.h"
 
 int main(void)
 {
 
-	led_init();
+	LED_INIT();
+
+
 
 	while(1){
-		led_on();
+		LED_ON();
 	}
 
 }

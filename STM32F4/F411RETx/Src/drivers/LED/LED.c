@@ -3,7 +3,7 @@
 #define GPIOAEN		(1U << 0) /* GPIOA Clock Access Enable Bit */
 #define LED_PIN		(1U << 5) /* Using Pin 5 in GPIOA as LED_PIN */
 
-void led_init(void){
+void LED_INIT(void){
 
 	RCC -> AHB1ENR |= GPIOAEN; /* Enable clock access to GPIOA */
 
@@ -13,12 +13,12 @@ void led_init(void){
 
 }
 
-void led_on(void){
+void LED_ON(void){
 
 	GPIOA -> ODR |= LED_PIN; /* Set LED_PIN high in GPIOA's output data register */
 }
 
-void led_off(void){
+void LED_OFF(void){
 	// set LED pin LOW
 
 	GPIOA -> ODR &= ~LED_PIN; /* Set LED_PIN low in GPIOA's output data register */

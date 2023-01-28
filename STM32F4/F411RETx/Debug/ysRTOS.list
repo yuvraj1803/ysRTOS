@@ -27,23 +27,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  11 .ARM.attributes 00000030  00000000  00000000  00010300  2**0
                   CONTENTS, READONLY
- 12 .debug_info   0000041d  00000000  00000000  00010330  2**0
+ 12 .debug_info   0000042b  00000000  00000000  00010330  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 13 .debug_abbrev 0000011d  00000000  00000000  0001074d  2**0
+ 13 .debug_abbrev 0000011d  00000000  00000000  0001075b  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_aranges 00000078  00000000  00000000  00010870  2**3
+ 14 .debug_aranges 00000078  00000000  00000000  00010878  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_ranges 00000050  00000000  00000000  000108e8  2**3
+ 15 .debug_ranges 00000050  00000000  00000000  000108f0  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_macro  0000dd10  00000000  00000000  00010938  2**0
+ 16 .debug_macro  0000e69e  00000000  00000000  00010940  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   00000a8f  00000000  00000000  0001e648  2**0
+ 17 .debug_line   00000c03  00000000  00000000  0001efde  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    0004fa41  00000000  00000000  0001f0d7  2**0
+ 18 .debug_str    00052b8f  00000000  00000000  0001fbe1  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000050  00000000  00000000  0006eb18  2**0
+ 19 .comment      00000050  00000000  00000000  00072770  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  000000c8  00000000  00000000  0006eb68  2**2
+ 20 .debug_frame  000000c8  00000000  00000000  000727c0  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -76,35 +76,35 @@ Disassembly of section .text:
  80001d0:	20000004 	.word	0x20000004
  80001d4:	080002e0 	.word	0x080002e0
 
-080001d8 <led_init>:
+080001d8 <LED_INIT>:
 #include "LED.h"
 
 #define GPIOAEN		(1U << 0) /* GPIOA Clock Access Enable Bit */
 #define LED_PIN		(1U << 5) /* Using Pin 5 in GPIOA as LED_PIN */
 
-void led_init(void){
+void LED_INIT(void){
  80001d8:	b480      	push	{r7}
  80001da:	af00      	add	r7, sp, #0
 
 	RCC -> AHB1ENR |= GPIOAEN; /* Enable clock access to GPIOA */
- 80001dc:	4b0b      	ldr	r3, [pc, #44]	; (800020c <led_init+0x34>)
+ 80001dc:	4b0b      	ldr	r3, [pc, #44]	; (800020c <LED_INIT+0x34>)
  80001de:	6b1b      	ldr	r3, [r3, #48]	; 0x30
- 80001e0:	4a0a      	ldr	r2, [pc, #40]	; (800020c <led_init+0x34>)
+ 80001e0:	4a0a      	ldr	r2, [pc, #40]	; (800020c <LED_INIT+0x34>)
  80001e2:	f043 0301 	orr.w	r3, r3, #1
  80001e6:	6313      	str	r3, [r2, #48]	; 0x30
 
 	/* set pin 5 in GPIOA as output pin */
 	GPIOA -> MODER |= (1U << 10);
- 80001e8:	4b09      	ldr	r3, [pc, #36]	; (8000210 <led_init+0x38>)
+ 80001e8:	4b09      	ldr	r3, [pc, #36]	; (8000210 <LED_INIT+0x38>)
  80001ea:	681b      	ldr	r3, [r3, #0]
- 80001ec:	4a08      	ldr	r2, [pc, #32]	; (8000210 <led_init+0x38>)
+ 80001ec:	4a08      	ldr	r2, [pc, #32]	; (8000210 <LED_INIT+0x38>)
  80001ee:	f443 6380 	orr.w	r3, r3, #1024	; 0x400
  80001f2:	6013      	str	r3, [r2, #0]
-	GPIOA -> MODER &= ~(1U << 11);
- 80001f4:	4b06      	ldr	r3, [pc, #24]	; (8000210 <led_init+0x38>)
+	GPIOA -> MODER &= ~(1U << 10);
+ 80001f4:	4b06      	ldr	r3, [pc, #24]	; (8000210 <LED_INIT+0x38>)
  80001f6:	681b      	ldr	r3, [r3, #0]
- 80001f8:	4a05      	ldr	r2, [pc, #20]	; (8000210 <led_init+0x38>)
- 80001fa:	f423 6300 	bic.w	r3, r3, #2048	; 0x800
+ 80001f8:	4a05      	ldr	r2, [pc, #20]	; (8000210 <LED_INIT+0x38>)
+ 80001fa:	f423 6380 	bic.w	r3, r3, #1024	; 0x400
  80001fe:	6013      	str	r3, [r2, #0]
 
 }
@@ -116,16 +116,16 @@ void led_init(void){
  800020c:	40023800 	.word	0x40023800
  8000210:	40020000 	.word	0x40020000
 
-08000214 <led_on>:
+08000214 <LED_ON>:
 
-void led_on(void){
+void LED_ON(void){
  8000214:	b480      	push	{r7}
  8000216:	af00      	add	r7, sp, #0
 
 	GPIOA -> ODR |= LED_PIN; /* Set LED_PIN high in GPIOA's output data register */
- 8000218:	4b05      	ldr	r3, [pc, #20]	; (8000230 <led_on+0x1c>)
+ 8000218:	4b05      	ldr	r3, [pc, #20]	; (8000230 <LED_ON+0x1c>)
  800021a:	695b      	ldr	r3, [r3, #20]
- 800021c:	4a04      	ldr	r2, [pc, #16]	; (8000230 <led_on+0x1c>)
+ 800021c:	4a04      	ldr	r2, [pc, #16]	; (8000230 <LED_ON+0x1c>)
  800021e:	f043 0320 	orr.w	r3, r3, #32
  8000222:	6153      	str	r3, [r2, #20]
 }
@@ -137,21 +137,23 @@ void led_on(void){
  8000230:	40020000 	.word	0x40020000
 
 08000234 <main>:
-#include <stdint.h>
+#include <stdlib.h>
 #include "../config/config.h"
-#include "../drivers/LED/LED.h"
+#include "drivers/LED/LED.h"
 
 int main(void)
 {
  8000234:	b580      	push	{r7, lr}
  8000236:	af00      	add	r7, sp, #0
 
-	led_init();
- 8000238:	f7ff ffce 	bl	80001d8 <led_init>
+	LED_INIT();
+ 8000238:	f7ff ffce 	bl	80001d8 <LED_INIT>
+
+
 
 	while(1){
-		led_on();
- 800023c:	f7ff ffea 	bl	8000214 <led_on>
+		LED_ON();
+ 800023c:	f7ff ffea 	bl	8000214 <LED_ON>
  8000240:	e7fc      	b.n	800023c <main+0x8>
 	...
 

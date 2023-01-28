@@ -25,26 +25,44 @@ Discarded input sections
  .ARM.exidx     0x0000000000000000       0x10 /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.macos64_1.0.100.202210260954/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/crt0.o
  .ARM.attributes
                 0x0000000000000000       0x1c /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.macos64_1.0.100.202210260954/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/crt0.o
- .group         0x0000000000000000        0xc ./Src/LED.o
- .group         0x0000000000000000        0xc ./Src/LED.o
- .group         0x0000000000000000        0xc ./Src/LED.o
- .group         0x0000000000000000        0xc ./Src/LED.o
- .group         0x0000000000000000        0xc ./Src/LED.o
- .group         0x0000000000000000        0xc ./Src/LED.o
- .group         0x0000000000000000        0xc ./Src/LED.o
- .group         0x0000000000000000        0xc ./Src/LED.o
- .group         0x0000000000000000        0xc ./Src/LED.o
- .group         0x0000000000000000        0xc ./Src/LED.o
- .group         0x0000000000000000        0xc ./Src/LED.o
- .group         0x0000000000000000        0xc ./Src/LED.o
- .group         0x0000000000000000        0xc ./Src/LED.o
- .group         0x0000000000000000        0xc ./Src/LED.o
- .group         0x0000000000000000        0xc ./Src/LED.o
- .group         0x0000000000000000        0xc ./Src/LED.o
- .text          0x0000000000000000        0x0 ./Src/LED.o
- .data          0x0000000000000000        0x0 ./Src/LED.o
- .bss           0x0000000000000000        0x0 ./Src/LED.o
- .text.led_off  0x0000000000000000       0x20 ./Src/LED.o
+ .group         0x0000000000000000        0xc ./Src/drivers/LED/LED.o
+ .group         0x0000000000000000        0xc ./Src/drivers/LED/LED.o
+ .group         0x0000000000000000        0xc ./Src/drivers/LED/LED.o
+ .group         0x0000000000000000        0xc ./Src/drivers/LED/LED.o
+ .group         0x0000000000000000        0xc ./Src/drivers/LED/LED.o
+ .group         0x0000000000000000        0xc ./Src/drivers/LED/LED.o
+ .group         0x0000000000000000        0xc ./Src/drivers/LED/LED.o
+ .group         0x0000000000000000        0xc ./Src/drivers/LED/LED.o
+ .group         0x0000000000000000        0xc ./Src/drivers/LED/LED.o
+ .group         0x0000000000000000        0xc ./Src/drivers/LED/LED.o
+ .group         0x0000000000000000        0xc ./Src/drivers/LED/LED.o
+ .group         0x0000000000000000        0xc ./Src/drivers/LED/LED.o
+ .group         0x0000000000000000        0xc ./Src/drivers/LED/LED.o
+ .group         0x0000000000000000        0xc ./Src/drivers/LED/LED.o
+ .group         0x0000000000000000        0xc ./Src/drivers/LED/LED.o
+ .group         0x0000000000000000        0xc ./Src/drivers/LED/LED.o
+ .text          0x0000000000000000        0x0 ./Src/drivers/LED/LED.o
+ .data          0x0000000000000000        0x0 ./Src/drivers/LED/LED.o
+ .bss           0x0000000000000000        0x0 ./Src/drivers/LED/LED.o
+ .text.LED_OFF  0x0000000000000000       0x20 ./Src/drivers/LED/LED.o
+ .group         0x0000000000000000        0xc ./Src/main.o
+ .group         0x0000000000000000        0xc ./Src/main.o
+ .group         0x0000000000000000        0xc ./Src/main.o
+ .group         0x0000000000000000        0xc ./Src/main.o
+ .group         0x0000000000000000        0xc ./Src/main.o
+ .group         0x0000000000000000        0xc ./Src/main.o
+ .group         0x0000000000000000        0xc ./Src/main.o
+ .group         0x0000000000000000        0xc ./Src/main.o
+ .group         0x0000000000000000        0xc ./Src/main.o
+ .group         0x0000000000000000        0xc ./Src/main.o
+ .group         0x0000000000000000        0xc ./Src/main.o
+ .group         0x0000000000000000        0xc ./Src/main.o
+ .group         0x0000000000000000        0xc ./Src/main.o
+ .group         0x0000000000000000        0xc ./Src/main.o
+ .group         0x0000000000000000        0xc ./Src/main.o
+ .group         0x0000000000000000        0xc ./Src/main.o
+ .group         0x0000000000000000        0xc ./Src/main.o
+ .group         0x0000000000000000        0xc ./Src/main.o
  .group         0x0000000000000000        0xc ./Src/main.o
  .group         0x0000000000000000        0xc ./Src/main.o
  .group         0x0000000000000000        0xc ./Src/main.o
@@ -333,7 +351,7 @@ Linker script and memory map
 LOAD /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.macos64_1.0.100.202210260954/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crti.o
 LOAD /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.macos64_1.0.100.202210260954/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
 LOAD /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.macos64_1.0.100.202210260954/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/crt0.o
-LOAD ./Src/LED.o
+LOAD ./Src/drivers/LED/LED.o
 LOAD ./Src/main.o
 LOAD ./Src/syscalls.o
 LOAD ./Src/sysmem.o
@@ -374,11 +392,11 @@ LOAD /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.id
  *(.text)
  .text          0x0000000008000198       0x40 /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.macos64_1.0.100.202210260954/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
  *(.text*)
- .text.led_init
-                0x00000000080001d8       0x3c ./Src/LED.o
-                0x00000000080001d8                led_init
- .text.led_on   0x0000000008000214       0x20 ./Src/LED.o
-                0x0000000008000214                led_on
+ .text.LED_INIT
+                0x00000000080001d8       0x3c ./Src/drivers/LED/LED.o
+                0x00000000080001d8                LED_INIT
+ .text.LED_ON   0x0000000008000214       0x20 ./Src/drivers/LED/LED.o
+                0x0000000008000214                LED_ON
  .text.main     0x0000000008000234        0xe ./Src/main.o
                 0x0000000008000234                main
  *fill*         0x0000000008000242        0x2 
@@ -580,7 +598,7 @@ LOAD /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.id
  .ARM.attributes
                 0x000000000000001e       0x34 /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.macos64_1.0.100.202210260954/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
  .ARM.attributes
-                0x0000000000000052       0x34 ./Src/LED.o
+                0x0000000000000052       0x34 ./Src/drivers/LED/LED.o
  .ARM.attributes
                 0x0000000000000086       0x34 ./Src/main.o
  .ARM.attributes
@@ -595,68 +613,86 @@ LOAD /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.id
 LOAD /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.macos64_1.0.100.202210260954/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a
 LOAD /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.macos64_1.0.100.202210260954/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/libgcc.a
 
-.debug_info     0x0000000000000000      0x41d
- .debug_info    0x0000000000000000      0x365 ./Src/LED.o
- .debug_info    0x0000000000000365       0x96 ./Src/main.o
- .debug_info    0x00000000000003fb       0x22 ./Startup/startup_stm32f411retx.o
+.debug_info     0x0000000000000000      0x42b
+ .debug_info    0x0000000000000000      0x365 ./Src/drivers/LED/LED.o
+ .debug_info    0x0000000000000365       0xa4 ./Src/main.o
+ .debug_info    0x0000000000000409       0x22 ./Startup/startup_stm32f411retx.o
 
 .debug_abbrev   0x0000000000000000      0x11d
- .debug_abbrev  0x0000000000000000       0xaf ./Src/LED.o
+ .debug_abbrev  0x0000000000000000       0xaf ./Src/drivers/LED/LED.o
  .debug_abbrev  0x00000000000000af       0x5c ./Src/main.o
  .debug_abbrev  0x000000000000010b       0x12 ./Startup/startup_stm32f411retx.o
 
 .debug_aranges  0x0000000000000000       0x78
  .debug_aranges
-                0x0000000000000000       0x30 ./Src/LED.o
+                0x0000000000000000       0x30 ./Src/drivers/LED/LED.o
  .debug_aranges
                 0x0000000000000030       0x20 ./Src/main.o
  .debug_aranges
                 0x0000000000000050       0x28 ./Startup/startup_stm32f411retx.o
 
 .debug_ranges   0x0000000000000000       0x50
- .debug_ranges  0x0000000000000000       0x20 ./Src/LED.o
+ .debug_ranges  0x0000000000000000       0x20 ./Src/drivers/LED/LED.o
  .debug_ranges  0x0000000000000020       0x10 ./Src/main.o
  .debug_ranges  0x0000000000000030       0x20 ./Startup/startup_stm32f411retx.o
 
-.debug_macro    0x0000000000000000     0xdd10
- .debug_macro   0x0000000000000000       0xe4 ./Src/LED.o
- .debug_macro   0x00000000000000e4      0xa8a ./Src/LED.o
- .debug_macro   0x0000000000000b6e       0x28 ./Src/LED.o
- .debug_macro   0x0000000000000b96       0x28 ./Src/LED.o
- .debug_macro   0x0000000000000bbe       0x22 ./Src/LED.o
- .debug_macro   0x0000000000000be0       0x8e ./Src/LED.o
- .debug_macro   0x0000000000000c6e       0x51 ./Src/LED.o
- .debug_macro   0x0000000000000cbf      0x103 ./Src/LED.o
- .debug_macro   0x0000000000000dc2       0x6a ./Src/LED.o
- .debug_macro   0x0000000000000e2c      0x1df ./Src/LED.o
- .debug_macro   0x000000000000100b       0x1c ./Src/LED.o
- .debug_macro   0x0000000000001027       0x22 ./Src/LED.o
- .debug_macro   0x0000000000001049       0xd9 ./Src/LED.o
- .debug_macro   0x0000000000001122     0x102d ./Src/LED.o
- .debug_macro   0x000000000000214f      0x11f ./Src/LED.o
- .debug_macro   0x000000000000226e     0xb953 ./Src/LED.o
- .debug_macro   0x000000000000dbc1       0x6d ./Src/LED.o
- .debug_macro   0x000000000000dc2e       0xe2 ./Src/main.o
+.debug_macro    0x0000000000000000     0xe69e
+ .debug_macro   0x0000000000000000       0xe4 ./Src/drivers/LED/LED.o
+ .debug_macro   0x00000000000000e4      0xa8a ./Src/drivers/LED/LED.o
+ .debug_macro   0x0000000000000b6e       0x28 ./Src/drivers/LED/LED.o
+ .debug_macro   0x0000000000000b96       0x28 ./Src/drivers/LED/LED.o
+ .debug_macro   0x0000000000000bbe       0x22 ./Src/drivers/LED/LED.o
+ .debug_macro   0x0000000000000be0       0x8e ./Src/drivers/LED/LED.o
+ .debug_macro   0x0000000000000c6e       0x51 ./Src/drivers/LED/LED.o
+ .debug_macro   0x0000000000000cbf      0x103 ./Src/drivers/LED/LED.o
+ .debug_macro   0x0000000000000dc2       0x6a ./Src/drivers/LED/LED.o
+ .debug_macro   0x0000000000000e2c      0x1df ./Src/drivers/LED/LED.o
+ .debug_macro   0x000000000000100b       0x1c ./Src/drivers/LED/LED.o
+ .debug_macro   0x0000000000001027       0x22 ./Src/drivers/LED/LED.o
+ .debug_macro   0x0000000000001049       0xd9 ./Src/drivers/LED/LED.o
+ .debug_macro   0x0000000000001122     0x102d ./Src/drivers/LED/LED.o
+ .debug_macro   0x000000000000214f      0x11f ./Src/drivers/LED/LED.o
+ .debug_macro   0x000000000000226e     0xb953 ./Src/drivers/LED/LED.o
+ .debug_macro   0x000000000000dbc1       0x6d ./Src/drivers/LED/LED.o
+ .debug_macro   0x000000000000dc2e      0x1b3 ./Src/main.o
+ .debug_macro   0x000000000000dde1       0x1e ./Src/main.o
+ .debug_macro   0x000000000000ddff       0x52 ./Src/main.o
+ .debug_macro   0x000000000000de51       0x3c ./Src/main.o
+ .debug_macro   0x000000000000de8d       0x34 ./Src/main.o
+ .debug_macro   0x000000000000dec1       0x16 ./Src/main.o
+ .debug_macro   0x000000000000ded7      0x10e ./Src/main.o
+ .debug_macro   0x000000000000dfe5       0x8d ./Src/main.o
+ .debug_macro   0x000000000000e072       0x16 ./Src/main.o
+ .debug_macro   0x000000000000e088       0x43 ./Src/main.o
+ .debug_macro   0x000000000000e0cb       0x34 ./Src/main.o
+ .debug_macro   0x000000000000e0ff       0x10 ./Src/main.o
+ .debug_macro   0x000000000000e10f       0x58 ./Src/main.o
+ .debug_macro   0x000000000000e167       0x71 ./Src/main.o
+ .debug_macro   0x000000000000e1d8       0x1c ./Src/main.o
+ .debug_macro   0x000000000000e1f4      0x12a ./Src/main.o
+ .debug_macro   0x000000000000e31e      0x341 ./Src/main.o
+ .debug_macro   0x000000000000e65f       0x16 ./Src/main.o
+ .debug_macro   0x000000000000e675       0x29 ./Src/main.o
 
-.debug_line     0x0000000000000000      0xa8f
- .debug_line    0x0000000000000000      0x516 ./Src/LED.o
- .debug_line    0x0000000000000516      0x4f5 ./Src/main.o
- .debug_line    0x0000000000000a0b       0x84 ./Startup/startup_stm32f411retx.o
+.debug_line     0x0000000000000000      0xc03
+ .debug_line    0x0000000000000000      0x50e ./Src/drivers/LED/LED.o
+ .debug_line    0x000000000000050e      0x671 ./Src/main.o
+ .debug_line    0x0000000000000b7f       0x84 ./Startup/startup_stm32f411retx.o
 
-.debug_str      0x0000000000000000    0x4fa41
- .debug_str     0x0000000000000000    0x4f9ef ./Src/LED.o
-                                      0x4fb58 (size before relaxing)
- .debug_str     0x000000000004f9ef       0x21 ./Src/main.o
-                                      0x4f9ec (size before relaxing)
- .debug_str     0x000000000004fa10       0x31 ./Startup/startup_stm32f411retx.o
+.debug_str      0x0000000000000000    0x52b8f
+ .debug_str     0x0000000000000000    0x4f9f6 ./Src/drivers/LED/LED.o
+                                      0x4fb64 (size before relaxing)
+ .debug_str     0x000000000004f9f6     0x3168 ./Src/main.o
+                                      0x52bc0 (size before relaxing)
+ .debug_str     0x0000000000052b5e       0x31 ./Startup/startup_stm32f411retx.o
                                          0x6a (size before relaxing)
 
 .comment        0x0000000000000000       0x50
- .comment       0x0000000000000000       0x50 ./Src/LED.o
+ .comment       0x0000000000000000       0x50 ./Src/drivers/LED/LED.o
                                          0x51 (size before relaxing)
  .comment       0x0000000000000050       0x51 ./Src/main.o
 
 .debug_frame    0x0000000000000000       0xc8
- .debug_frame   0x0000000000000000       0x70 ./Src/LED.o
+ .debug_frame   0x0000000000000000       0x70 ./Src/drivers/LED/LED.o
  .debug_frame   0x0000000000000070       0x2c ./Src/main.o
  .debug_frame   0x000000000000009c       0x2c /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.macos64_1.0.100.202210260954/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-init.o)
