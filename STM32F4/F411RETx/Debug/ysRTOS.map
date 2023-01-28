@@ -136,6 +136,26 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x11f ./Src/drivers/UART/UART.o
  .debug_macro   0x0000000000000000     0xb953 ./Src/drivers/UART/UART.o
  .debug_macro   0x0000000000000000       0x6d ./Src/drivers/UART/UART.o
+ .text          0x0000000000000000        0x0 ./Src/kernel/handlers/handlers.o
+ .data          0x0000000000000000        0x0 ./Src/kernel/handlers/handlers.o
+ .bss           0x0000000000000000        0x0 ./Src/kernel/handlers/handlers.o
+ .ARM.attributes
+                0x0000000000000000       0x20 ./Src/kernel/handlers/handlers.o
+ .group         0x0000000000000000        0xc ./Src/kernel/thread/thread.o
+ .text          0x0000000000000000        0x0 ./Src/kernel/thread/thread.o
+ .data          0x0000000000000000        0x0 ./Src/kernel/thread/thread.o
+ .bss           0x0000000000000000        0x0 ./Src/kernel/thread/thread.o
+ .debug_info    0x0000000000000000       0x21 ./Src/kernel/thread/thread.o
+ .debug_abbrev  0x0000000000000000       0x13 ./Src/kernel/thread/thread.o
+ .debug_aranges
+                0x0000000000000000       0x18 ./Src/kernel/thread/thread.o
+ .debug_macro   0x0000000000000000       0x11 ./Src/kernel/thread/thread.o
+ .debug_macro   0x0000000000000000      0xa8a ./Src/kernel/thread/thread.o
+ .debug_line    0x0000000000000000       0x3e ./Src/kernel/thread/thread.o
+ .debug_str     0x0000000000000000     0x2d00 ./Src/kernel/thread/thread.o
+ .comment       0x0000000000000000       0x51 ./Src/kernel/thread/thread.o
+ .ARM.attributes
+                0x0000000000000000       0x34 ./Src/kernel/thread/thread.o
  .group         0x0000000000000000        0xc ./Src/main.o
  .group         0x0000000000000000        0xc ./Src/main.o
  .group         0x0000000000000000        0xc ./Src/main.o
@@ -550,6 +570,8 @@ LOAD /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.id
 LOAD /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.macos64_1.0.100.202210260954/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/crt0.o
 LOAD ./Src/drivers/LED/LED.o
 LOAD ./Src/drivers/UART/UART.o
+LOAD ./Src/kernel/handlers/handlers.o
+LOAD ./Src/kernel/thread/thread.o
 LOAD ./Src/main.o
 LOAD ./Src/syscalls.o
 LOAD ./Src/sysmem.o
@@ -1065,21 +1087,21 @@ LOAD /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.id
 LOAD /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.macos64_1.0.100.202210260954/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a
 LOAD /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.macos64_1.0.100.202210260954/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/libgcc.a
 
-.debug_info     0x0000000000000000     0x113c
+.debug_info     0x0000000000000000     0x1129
  .debug_info    0x0000000000000000      0x365 ./Src/drivers/LED/LED.o
- .debug_info    0x0000000000000365      0x496 ./Src/drivers/UART/UART.o
- .debug_info    0x00000000000007fb       0xce ./Src/main.o
- .debug_info    0x00000000000008c9      0x6e0 ./Src/syscalls.o
- .debug_info    0x0000000000000fa9      0x171 ./Src/sysmem.o
- .debug_info    0x000000000000111a       0x22 ./Startup/startup_stm32f411retx.o
+ .debug_info    0x0000000000000365      0x483 ./Src/drivers/UART/UART.o
+ .debug_info    0x00000000000007e8       0xce ./Src/main.o
+ .debug_info    0x00000000000008b6      0x6e0 ./Src/syscalls.o
+ .debug_info    0x0000000000000f96      0x171 ./Src/sysmem.o
+ .debug_info    0x0000000000001107       0x22 ./Startup/startup_stm32f411retx.o
 
-.debug_abbrev   0x0000000000000000      0x52f
+.debug_abbrev   0x0000000000000000      0x4fb
  .debug_abbrev  0x0000000000000000       0xaf ./Src/drivers/LED/LED.o
- .debug_abbrev  0x00000000000000af      0x171 ./Src/drivers/UART/UART.o
- .debug_abbrev  0x0000000000000220       0x8f ./Src/main.o
- .debug_abbrev  0x00000000000002af      0x1b3 ./Src/syscalls.o
- .debug_abbrev  0x0000000000000462       0xbb ./Src/sysmem.o
- .debug_abbrev  0x000000000000051d       0x12 ./Startup/startup_stm32f411retx.o
+ .debug_abbrev  0x00000000000000af      0x13d ./Src/drivers/UART/UART.o
+ .debug_abbrev  0x00000000000001ec       0x8f ./Src/main.o
+ .debug_abbrev  0x000000000000027b      0x1b3 ./Src/syscalls.o
+ .debug_abbrev  0x000000000000042e       0xbb ./Src/sysmem.o
+ .debug_abbrev  0x00000000000004e9       0x12 ./Startup/startup_stm32f411retx.o
 
 .debug_aranges  0x0000000000000000      0x188
  .debug_aranges
@@ -1174,13 +1196,13 @@ LOAD /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.id
  .debug_macro   0x000000000000f7b3       0xff ./Src/sysmem.o
  .debug_macro   0x000000000000f8b2      0x23b ./Src/sysmem.o
 
-.debug_line     0x0000000000000000     0x1fce
+.debug_line     0x0000000000000000     0x1fcd
  .debug_line    0x0000000000000000      0x50e ./Src/drivers/LED/LED.o
- .debug_line    0x000000000000050e      0x59c ./Src/drivers/UART/UART.o
- .debug_line    0x0000000000000aaa      0x74a ./Src/main.o
- .debug_line    0x00000000000011f4      0x830 ./Src/syscalls.o
- .debug_line    0x0000000000001a24      0x526 ./Src/sysmem.o
- .debug_line    0x0000000000001f4a       0x84 ./Startup/startup_stm32f411retx.o
+ .debug_line    0x000000000000050e      0x59d ./Src/drivers/UART/UART.o
+ .debug_line    0x0000000000000aab      0x74a ./Src/main.o
+ .debug_line    0x00000000000011f5      0x82e ./Src/syscalls.o
+ .debug_line    0x0000000000001a23      0x526 ./Src/sysmem.o
+ .debug_line    0x0000000000001f49       0x84 ./Startup/startup_stm32f411retx.o
 
 .debug_str      0x0000000000000000    0x55336
  .debug_str     0x0000000000000000    0x4f9f6 ./Src/drivers/LED/LED.o

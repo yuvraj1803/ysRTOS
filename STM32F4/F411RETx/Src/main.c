@@ -18,13 +18,6 @@
 int main(void)
 {
 
-	LED_INIT();
-	UART_INIT();
 
-
-	while(1){
-		LED_ON();
-		printf("helo");
-	}
 
 }

@@ -21,13 +21,14 @@
 static void set_uart_baudrate(uint32_t periph_clk, uint32_t baudrate);
 static uint32_t compute_uart_baudrate(uint32_t periph_clk, uint32_t baudrate);
 static void uart_write(int ch);
-
+void uart_tx_init(void);
 
 int __io_putchar(int ch){ /* defined in syscalls.c */
 	uart_write(ch);
 
 	return ch;
 }
+
 
 void UART_INIT(void){
 	uart_tx_init();

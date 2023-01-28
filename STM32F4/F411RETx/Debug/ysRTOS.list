@@ -27,23 +27,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  11 .ARM.attributes 00000030  00000000  00000000  00020064  2**0
                   CONTENTS, READONLY
- 12 .debug_info   0000113c  00000000  00000000  00020094  2**0
+ 12 .debug_info   00001129  00000000  00000000  00020094  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 13 .debug_abbrev 0000052f  00000000  00000000  000211d0  2**0
+ 13 .debug_abbrev 000004fb  00000000  00000000  000211bd  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_aranges 00000188  00000000  00000000  00021700  2**3
+ 14 .debug_aranges 00000188  00000000  00000000  000216b8  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_ranges 00000130  00000000  00000000  00021888  2**3
+ 15 .debug_ranges 00000130  00000000  00000000  00021840  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_macro  0000faed  00000000  00000000  000219b8  2**0
+ 16 .debug_macro  0000faed  00000000  00000000  00021970  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   00001fce  00000000  00000000  000314a5  2**0
+ 17 .debug_line   00001fcd  00000000  00000000  0003145d  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    00055336  00000000  00000000  00033473  2**0
+ 18 .debug_str    00055336  00000000  00000000  0003342a  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000050  00000000  00000000  000887a9  2**0
+ 19 .comment      00000050  00000000  00000000  00088760  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00000c88  00000000  00000000  000887fc  2**2
+ 20 .debug_frame  00000c88  00000000  00000000  000887b0  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -200,7 +200,7 @@ void LED_ON(void){
 static void set_uart_baudrate(uint32_t periph_clk, uint32_t baudrate);
 static uint32_t compute_uart_baudrate(uint32_t periph_clk, uint32_t baudrate);
 static void uart_write(int ch);
-
+void uart_tx_init(void);
 
 int __io_putchar(int ch){ /* defined in syscalls.c */
  80002dc:	b580      	push	{r7, lr}
@@ -220,6 +220,7 @@ int __io_putchar(int ch){ /* defined in syscalls.c */
  80002f2:	bd80      	pop	{r7, pc}
 
 080002f4 <UART_INIT>:
+
 
 void UART_INIT(void){
  80002f4:	b580      	push	{r7, lr}

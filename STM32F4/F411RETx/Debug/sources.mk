@@ -23,6 +23,8 @@ C_DEPS :=
 SUBDIRS := \
 Src/drivers/LED \
 Src/drivers/UART \
+Src/kernel/handlers \
+Src/kernel/thread \
 Src \
 Startup \
 

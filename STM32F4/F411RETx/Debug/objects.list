@@ -1,5 +1,7 @@
 "./Src/drivers/LED/LED.o"
 "./Src/drivers/UART/UART.o"
+"./Src/kernel/handlers/handlers.o"
+"./Src/kernel/thread/thread.o"
 "./Src/main.o"
 "./Src/syscalls.o"
 "./Src/sysmem.o"
