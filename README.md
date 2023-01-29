@@ -35,3 +35,15 @@
   
  	Click Ok
   ----------------------------------------------------------------------------------------
+  
+  # Startup
+  
+  **STM32F4** 
+  *                - Set the initial SP
+  *                - Set the initial PC == Reset_Handler,
+  *                - Set the vector table entries with the exceptions ISR address
+  *                - Branches to main in the C library (which eventually calls main())
+  *                - Initialises drivers as specified in the config/config.h file.
+  *                - Initialises the ysRTOS-kernel.
+  *                - Adds threads.
+  *                - Launches the kernel.
