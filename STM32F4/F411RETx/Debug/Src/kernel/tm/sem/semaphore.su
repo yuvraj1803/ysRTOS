@@ -1,0 +1,3 @@
+../Src/kernel/tm/sem/semaphore.c:21:6:semaphore_give	16	static,ignoring_inline_asm
+../Src/kernel/tm/sem/semaphore.c:27:6:semaphore_wait	16	static,ignoring_inline_asm
+../Src/kernel/tm/sem/semaphore.c:40:6:semaphore_init	16	static

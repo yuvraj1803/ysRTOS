@@ -1,18 +1,22 @@
-/**
+/*
  ******************************************************************************
- * @file           : UART.h
+ * @file           : sched.h
  * @author         : Yuvraj Sakshith
- * @brief          : UART Driver
+ * @brief          : Scheduler related function and hardware interrupt handlers
  ******************************************************************************
  ******************************************************************************
  */
 
-#ifndef __UART_H__
-#define __UART_H__
 
+#ifndef __SCHED_H__
+#define	__SCHED_H__
 
 #include "stm32f4xx.h"
 
-void UART_INIT(void);
+
+void scheduler_launch(void);
+__attribute__((naked)) void SysTick_Handler(void);
+void cpu_yeild(void);
+
 
 #endif

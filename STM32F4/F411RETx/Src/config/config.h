@@ -1,32 +1,36 @@
+/**
+ ******************************************************************************
+ * @file           : config.h
+ * @author         : Yuvraj Sakshith
+ * @brief          : ysRTOS configuration file
+ ******************************************************************************
+ ******************************************************************************
+ */
+
 #ifndef __CONFIG_H__
 #define __CONFIG_H__
 
 #include <stdio.h>
 
-/* ERROR VALUES */
+/* ERROR CODES */
+
 enum ERR{
-	__SET_MAX_THREADS_FAIL__,
-	__SET_STK_SIZE_FAIL__
+	__ADD_THREAD_FAILURE__
 };
+
 
 /* All values you see assigned to the flags are the DEFAULT values */
 /* Use the ysRTOS configuration API defined in config/config.c to manipulate them */
 
-/* Flags for initialising device drivers (0x1 -> Enable, else Disable) */
-extern uint8_t __LED_INIT__	 = 0x1;
-extern uint8_t __UART_INIT__	 = 0x1;
+/* Flags for initialising device drivers (0x1 -> Enable, else Disable) [DISABLED ON DEFAULT]*/
+#define __LED_INIT__	 0x0
+#define __UART_INIT__	 0x0
 
 /* Kernel flags and variables (Default values) */
-extern uint32_t MAX_THREADS 		= 5;
-extern uint32_t STK_SIZE			= 100;	/* Stack size (working with threads) */
-extern const uint32_t BUS_FREQ		= 16000000;
-extern const uint32_t quanta		= 10; /* time quanta for the round robin scheduler in milliseconds */
-extern uint8_t RTOS_INITIALISED 	= 0x0;
-
-/* ysRTOS Configuration API functions*/
-
-void __SET_MAX_THREADS__(uint32_t val);
-void __SET_STK_SIZE__(uint32_t stk_size);
+#define MAX_THREADS 	 5
+#define STACK_SIZE	     100	/* Stack size (working with threads) */
+#define BUS_FREQ		 16000000
+#define quanta			 10 /* time quanta for the round robin scheduler in milliseconds */
 
 
 

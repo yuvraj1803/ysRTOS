@@ -1,18 +1,19 @@
-/**
+/*
  ******************************************************************************
- * @file           : UART.h
+ * @file           : mb.c
  * @author         : Yuvraj Sakshith
- * @brief          : UART Driver
+ * @brief          : Message Box for Inter-Thread-Communication
  ******************************************************************************
  ******************************************************************************
  */
 
-#ifndef __UART_H__
-#define __UART_H__
 
+
+#ifndef __MB_H__
+#define __MB_H__
 
 #include "stm32f4xx.h"
 
-void UART_INIT(void);
+
 
 #endif

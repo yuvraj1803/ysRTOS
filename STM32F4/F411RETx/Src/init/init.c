@@ -1,8 +1,17 @@
+/*
+ ******************************************************************************
+ * @file           : init.c
+ * @author         : Yuvraj Sakshith
+ * @brief          : OS Initialisation
+ ******************************************************************************
+ ******************************************************************************
+ */
+
+
 #include "init.h"
 #include "../kernel/kernel.h"
 
 void __init__(void){
-
 
 	/* Initialise drivers according to the flags defined in config/config.h */
 
@@ -13,11 +22,9 @@ void __init__(void){
 		UART_INIT();
 	}
 
+	/* Initialise the kernel */
+
 	kernel_init();
-
-	RTOS_INITIALISED = 0x1;
-
-	kernel_launch();
 
 
 }

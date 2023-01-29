@@ -1,0 +1,3 @@
+../Src/kernel/sched/sched.c:18:6:scheduler_launch	4	static,ignoring_inline_asm
+../Src/kernel/sched/sched.c:42:29:SysTick_Handler	0	static,ignoring_inline_asm
+../Src/kernel/sched/sched.c:78:6:cpu_yield	4	static
