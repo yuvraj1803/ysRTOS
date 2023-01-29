@@ -1,9 +1,9 @@
 # ysRTOS
- ysRTOS is a Real Time Operating System written on ARM Cortex-M4 processor.
-
-# Setting Up
+ ysRTOS is a Real Time Operating System written specifically for microcontrollers equipped with ARM-Cortex-M4 processors.
  Currently ysRTOS is only supported for the STM32F411RETx chips. There shall be more BSPs added in the future.
 
+# Setting Up
+ 
  I suggest using STM32Cube IDE for making things a lot easier.
 
  **Setup**
