@@ -13,6 +13,7 @@
 #define __TCB_H__
 
 #include "stm32f4xx.h"
+#include "../../mb/mb.h"
 
 /*
  *
@@ -33,6 +34,7 @@ typedef struct tcb{
 
 	uint32_t sleeptime;
 	uint32_t thread_id;
+	uint32_t period; /* only for periodic threads */
 
 }TCB;
 

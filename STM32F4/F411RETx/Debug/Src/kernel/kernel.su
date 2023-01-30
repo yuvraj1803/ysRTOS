@@ -1,5 +1,6 @@
 /Users/boju/Desktop/ysRTOS/ysRTOS/STM32F4/F411RETx/CMSIS/Include/core_cm4.h:1816:22:__NVIC_SetPriority	16	static
-../Src/kernel/kernel.c:40:6:kernel_init	4	static
-../Src/kernel/kernel.c:45:6:stk_init	16	static
-../Src/kernel/kernel.c:77:6:kernel_launch	8	static
-../Src/kernel/kernel.c:99:6:add_thread	24	static,ignoring_inline_asm
+../Src/kernel/kernel.c:46:6:kernel_init	4	static
+../Src/kernel/kernel.c:62:6:stk_init	16	static
+../Src/kernel/kernel.c:94:6:kernel_launch	8	static
+../Src/kernel/kernel.c:116:6:add_thread	24	static,ignoring_inline_asm
+../Src/kernel/kernel.c:151:6:add_periodic_thread	24	static,ignoring_inline_asm

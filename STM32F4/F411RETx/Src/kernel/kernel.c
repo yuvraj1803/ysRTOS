@@ -24,13 +24,19 @@ void kernel_launch(void);
 void add_thread(void (*thread)(void));
 
 
-TCB __tcbs__[MAX_THREADS]; /* Thread control blocks */
+TCB __tcbs__[MAX_THREADS + MAX_PERIODIC_THREADS]; /* Thread control blocks */
 TCB * __current_ptr__; /* pointer to currently executing thread */
 
-int32_t TCB_STACK[MAX_THREADS][STACK_SIZE];
+int32_t TCB_STACK[MAX_THREADS + MAX_PERIODIC_THREADS][STACK_SIZE];
 uint32_t MILLIS_PRESCALER;
 
 uint32_t recently_added_thread_id; /* thread id of the most recently added thread*/
+uint32_t recently_added_periodic_thread_id; /* thread id of the most recently added *periodic* thread*/
+uint32_t min_thread_id;
+uint32_t max_thread_id;
+
+uint32_t min_periodic_thread_id;
+uint32_t max_periodic_thread_id;
 
 /*
  * Note: Thread ID is simply the index of the TCB_STACK in which the thread's content is stored.
@@ -39,13 +45,24 @@ uint32_t recently_added_thread_id; /* thread id of the most recently added threa
 
 void kernel_init(void){
 	MILLIS_PRESCALER = (BUS_FREQ/1000); /*  for scaling milliseconds relative to the clock frequency.  */
-	recently_added_thread_id = -1; /* no threads active currently */
+
+
+	min_thread_id = 0;
+	max_thread_id = MAX_THREADS - 1;
+
+	min_periodic_thread_id = MAX_THREADS;
+	max_periodic_thread_id = MAX_THREADS + MAX_PERIODIC_THREADS - 1;
+
+	recently_added_thread_id = min_thread_id - 1; /* no threads active currently */
+	recently_added_periodic_thread_id = min_periodic_thread_id - 1; /* no periodic threads active currently */
+
+
 }
 
 void stk_init(uint32_t thread_id){
 
 		__tcbs__[thread_id].stackptr = &TCB_STACK[thread_id][STACK_SIZE-16]; /* init stack pointer */
-		__tcbs__[thread_id].thread_id = thread_id;
+
 
 		TCB_STACK[thread_id][STACK_SIZE-1] = (1U << 24); /* enable 24th bit in PSR to activate thumb mode */
 
@@ -97,7 +114,7 @@ void kernel_launch(void){
 }
 
 void add_thread(void (*thread)(void)){
-	if(recently_added_thread_id + 1 == MAX_THREADS){
+	if(recently_added_thread_id == max_thread_id){
 		fprintf(stderr,"Cannot add thread %p, max thread limit reached",&thread);
 		exit(__ADD_THREAD_FAILURE__);
 	}
@@ -107,6 +124,8 @@ void add_thread(void (*thread)(void)){
 	__disable_irq(); /* Disable global interrupts */
 
 	__tcbs__[thread_id].sleeptime = 0;
+	__tcbs__[thread_id].thread_id = thread_id;
+	__tcbs__[thread_id].period = 0;
 
 	stk_init(thread_id); /* initialise the stack */
 	TCB_STACK[thread_id][STACK_SIZE - 2] = (uint32_t) thread;  /* set the program counter to thread function's address */
@@ -128,6 +147,44 @@ void add_thread(void (*thread)(void)){
 
 
 }
+
+void add_periodic_thread(void (*pthread)(void), uint32_t period){
+	/* pthread has nothing to do with posix threads.
+	 *
+	 * uint32_t period is measured in milliseconds.
+	 *
+	 *
+	 * We shall be using TIM2 timer in the STM32F4 Board for measuring the time.
+	 *
+	 * TIM2_IRQHandler will be called when TIM2->CNT hits 0. This will initiate the context switching process.
+	 *
+	 *
+	 * */
+
+	if(recently_added_periodic_thread_id == max_periodic_thread_id){
+		fprintf(stderr, "Cannot add periodic thread %p, max periodic thread limit reached", &pthread);
+		exit(__ADD_PERIODIC_THREAD_FAILURE__);
+	}
+
+	uint32_t pthread_id = recently_added_periodic_thread_id + 1;
+
+	__disable_irq();
+
+	__tcbs__[pthread_id].sleeptime = 0;
+	__tcbs__[pthread_id].thread_id = pthread_id;
+	__tcbs__[pthread_id].period = period;
+
+	stk_init(pthread_id);
+	TCB_STACK[pthread_id][STACK_SIZE-2] = (uint32_t) pthread;
+
+	recently_added_periodic_thread_id = pthread_id;
+
+	__enable_irq();
+
+
+
+}
+
 
 
 

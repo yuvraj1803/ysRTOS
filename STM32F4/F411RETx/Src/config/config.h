@@ -15,7 +15,8 @@
 /* ERROR CODES */
 
 enum ERR{
-	__ADD_THREAD_FAILURE__
+	__ADD_THREAD_FAILURE__,
+	__ADD_PERIODIC_THREAD_FAILURE__
 };
 
 
@@ -27,11 +28,12 @@ enum ERR{
 #define __UART_INIT__	 0x0
 
 /* Kernel flags and variables (Default values) */
-#define MAX_THREADS 	 5
-#define STACK_SIZE	     100	/* Stack size (working with threads) */
-#define BUS_FREQ		 16000000
-#define quanta			 10 /* time quanta for the round robin scheduler in milliseconds */
-
+#define MAX_THREADS 	 		5
+#define MAX_PERIODIC_THREADS 	5
+#define STACK_SIZE	     		100	/* Stack size (working with threads) */
+#define BUS_FREQ		 		16000000
+#define quanta			 		10  /* time quanta for the round robin scheduler in milliseconds */
+#define MAX_MSG_ARR		 		100
 
 
 #endif

@@ -34,7 +34,7 @@ int main(void)
 	 *
 	 * Time Quanta for the Round-Robin Scheduler is 10 milliseconds(default). To modify change "quanta" in config/config.h
 	 *
-	 *
+	 * MAX_MSG_ARR is the maximum size of an array which can fit into a message_unit. Refer kernel/mb/mb.c
 
 	******************/
 

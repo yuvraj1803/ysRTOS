@@ -1,6 +1,7 @@
 "./Src/drivers/LED/LED.o"
 "./Src/drivers/UART/UART.o"
 "./Src/init/init.o"
+"./Src/kernel/SysTick/SysTick.o"
 "./Src/kernel/kernel.o"
 "./Src/kernel/mb/mb.o"
 "./Src/kernel/sched/sched.o"
@@ -8,4 +9,5 @@
 "./Src/main.o"
 "./Src/syscalls.o"
 "./Src/sysmem.o"
+"./Src/timers/tim2/tim2.o"
 "./Startup/startup_stm32f411retx.o"
