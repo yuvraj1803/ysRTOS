@@ -35,6 +35,7 @@ typedef struct tcb{
 	uint32_t sleeptime;
 	uint32_t thread_id;
 	uint32_t period; /* only for periodic threads */
+	uint8_t	 status; /* set to 1 if we have the thread is active and ready to run. */
 
 }TCB;
 

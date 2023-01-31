@@ -1,7 +1,6 @@
 "./Src/drivers/LED/LED.o"
 "./Src/drivers/UART/UART.o"
 "./Src/init/init.o"
-"./Src/kernel/SysTick/SysTick.o"
 "./Src/kernel/kernel.o"
 "./Src/kernel/mb/mb.o"
 "./Src/kernel/sched/sched.o"

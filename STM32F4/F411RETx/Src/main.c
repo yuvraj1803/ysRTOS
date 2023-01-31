@@ -13,7 +13,30 @@
 
 #include "config/config.h"
 #include "init/init.h"
+#include "drivers/LED/LED.h"
 #include "kernel/kernel.h"
+
+int a = 0;
+int b = 0;
+
+void pa(void){
+	while(1){
+		a++;
+	}
+}
+
+void pb(void){
+	while(1){
+		b++;
+	}
+}
+
+void on(void){
+	LED_ON();
+}
+void off(void){
+	LED_OFF();
+}
 
 
 int main(void)
@@ -24,6 +47,9 @@ int main(void)
 	/* To enable LED Driver, set __LED_INIT__ = 0x1 in config/config.h
 	 *
 	 * To enable UART Driver, set __UART_INIT__ = 0x1 in config/config.h (YOU WILL NEED THIS TO READ ERROR MESSAGES FROM THE BOARD)
+	 *
+	 * To disable TIM2 timer (ENABLED BY DEFAULT), set __TIM2_INIT__ = 0x0 in config/config.h
+	 *  (PERIODIC THREADS WILL NOT EXECUTE IF DONE SO)
 	 *
 	 * Maximum threads allowed are 5 (default), to modify change MAX_THREADS preprocessor in config/config.h
 	 *
@@ -46,7 +72,10 @@ int main(void)
 
 	/* Add all your threads below */
 
-	 // add_thread(&your_thread);
+	 add_thread(&pa);
+	 add_thread(&pb);
+	 add_periodic_thread(&on,1);
+	 add_periodic_thread(&off,200);
 
 	/*  */
 

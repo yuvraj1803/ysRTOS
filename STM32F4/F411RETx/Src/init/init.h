@@ -16,6 +16,8 @@
 #include "../drivers/LED/LED.h"
 #include "../drivers/UART/UART.h"
 #include "../config/config.h"
+#include "../kernel/kernel.h"
+
 
 void __init__(void);
 

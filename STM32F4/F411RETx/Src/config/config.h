@@ -24,8 +24,13 @@ enum ERR{
 /* Use the ysRTOS configuration API defined in config/config.c to manipulate them */
 
 /* Flags for initialising device drivers (0x1 -> Enable, else Disable) [DISABLED ON DEFAULT]*/
-#define __LED_INIT__	 0x0
+#define __LED_INIT__	 0x1
 #define __UART_INIT__	 0x0
+/*
+ * * All periodic threads rely on the TIM2_IRQHandler.
+   * Be very careful when modifying the value of __TIM2_INIT__ -> Enables TIM2 timer.
+ */
+#define __TIM2_INIT__	 0x1
 
 /* Kernel flags and variables (Default values) */
 #define MAX_THREADS 	 		5
@@ -34,6 +39,10 @@ enum ERR{
 #define BUS_FREQ		 		16000000
 #define quanta			 		10  /* time quanta for the round robin scheduler in milliseconds */
 #define MAX_MSG_ARR		 		100
+#define ticks_in_1ms 			16000; /* Number of clock ticks in one millisecond */
 
+
+/* Misc. flags used in the kernel */
+#define THREAD_ACTIVE			1
 
 #endif

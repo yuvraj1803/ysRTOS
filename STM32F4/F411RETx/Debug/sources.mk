@@ -24,7 +24,6 @@ SUBDIRS := \
 Src/drivers/LED \
 Src/drivers/UART \
 Src/init \
-Src/kernel/SysTick \
 Src/kernel \
 Src/kernel/mb \
 Src/kernel/sched \

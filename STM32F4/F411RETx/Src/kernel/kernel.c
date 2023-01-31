@@ -18,6 +18,8 @@
 #define CTRL_RESET				0
 
 
+
+
 void kernel_init(void);
 void stk_init(uint32_t);
 void kernel_launch(void);
@@ -25,6 +27,7 @@ void add_thread(void (*thread)(void));
 
 
 TCB __tcbs__[MAX_THREADS + MAX_PERIODIC_THREADS]; /* Thread control blocks */
+
 TCB * __current_ptr__; /* pointer to currently executing thread */
 
 int32_t TCB_STACK[MAX_THREADS + MAX_PERIODIC_THREADS][STACK_SIZE];
@@ -38,6 +41,8 @@ uint32_t max_thread_id;
 uint32_t min_periodic_thread_id;
 uint32_t max_periodic_thread_id;
 
+uint32_t sys_counter;          /* Keeps track of number of milliseconds elapsed. Handled by TIM2*/
+
 /*
  * Note: Thread ID is simply the index of the TCB_STACK in which the thread's content is stored.
  * */
@@ -46,6 +51,7 @@ uint32_t max_periodic_thread_id;
 void kernel_init(void){
 	MILLIS_PRESCALER = (BUS_FREQ/1000); /*  for scaling milliseconds relative to the clock frequency.  */
 
+	sys_counter = 0; /* reset */
 
 	min_thread_id = 0;
 	max_thread_id = MAX_THREADS - 1;
@@ -101,6 +107,8 @@ void kernel_launch(void){
 		 *
 		 * */
 
+
+
 		SysTick -> CTRL = CTRL_RESET; /* reset SysTick */
 		SysTick -> VAL = 0; /* clear SysTick current value register */
 		SysTick -> LOAD = (quanta * MILLIS_PRESCALER - 1); /* Load the quanta factored into milliseconds into the SysTick LOAD register */
@@ -109,6 +117,25 @@ void kernel_launch(void){
 
 		SysTick -> CTRL |= (CTRL_CLKSRC | CTRL_ENABLE); /* enable SysTick and select internal clock */
 		SysTick -> CTRL |= CTRL_TICKINT; /* Enable interrupts */
+
+
+		/*
+		 * We will need to configure SysTick before we initialise TIM2
+		 *
+		 * TIM2_IRQHandler shall be using SysTick_Handler to perform the context switch.
+		 *
+		 * */
+
+		if(__TIM2_INIT__ == 0x1){
+
+					/*
+					 * All periodic threads rely on the TIM2_IRQHandler.
+					 * Be very careful when modifying the value of __TIM2_INIT__ in config/config.h
+					 *
+					 * */
+
+					tim2_1ms_interrupt_init();
+		}
 
 		scheduler_launch();
 }
@@ -126,6 +153,7 @@ void add_thread(void (*thread)(void)){
 	__tcbs__[thread_id].sleeptime = 0;
 	__tcbs__[thread_id].thread_id = thread_id;
 	__tcbs__[thread_id].period = 0;
+	__tcbs__[thread_id].status = THREAD_ACTIVE;
 
 	stk_init(thread_id); /* initialise the stack */
 	TCB_STACK[thread_id][STACK_SIZE - 2] = (uint32_t) thread;  /* set the program counter to thread function's address */
@@ -173,6 +201,7 @@ void add_periodic_thread(void (*pthread)(void), uint32_t period){
 	__tcbs__[pthread_id].sleeptime = 0;
 	__tcbs__[pthread_id].thread_id = pthread_id;
 	__tcbs__[pthread_id].period = period;
+	__tcbs__[pthread_id].status = THREAD_ACTIVE;
 
 	stk_init(pthread_id);
 	TCB_STACK[pthread_id][STACK_SIZE-2] = (uint32_t) pthread;

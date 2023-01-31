@@ -14,7 +14,6 @@ RM := rm -rf
 -include Src/kernel/tm/sem/subdir.mk
 -include Src/kernel/sched/subdir.mk
 -include Src/kernel/mb/subdir.mk
--include Src/kernel/SysTick/subdir.mk
 -include Src/kernel/subdir.mk
 -include Src/init/subdir.mk
 -include Src/drivers/UART/subdir.mk

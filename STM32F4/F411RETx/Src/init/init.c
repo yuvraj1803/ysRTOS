@@ -9,7 +9,7 @@
 
 
 #include "init.h"
-#include "../kernel/kernel.h"
+
 
 void __init__(void){
 
@@ -21,6 +21,9 @@ void __init__(void){
 	if(__UART_INIT__ == 0x1){
 		UART_INIT();
 	}
+
+
+
 
 	/* Initialise the kernel */
 
