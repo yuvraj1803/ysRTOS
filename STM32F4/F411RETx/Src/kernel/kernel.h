@@ -29,6 +29,7 @@ extern TCB __tcbs__[MAX_THREADS + MAX_PERIODIC_THREADS];
 extern uint32_t min_periodic_thread_id;
 extern uint32_t max_periodic_thread_id;
 extern TCB * __current_ptr__;
+extern TCB * __current_periodic_ptr__;
 
 extern uint32_t sys_counter;
 

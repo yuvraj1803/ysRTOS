@@ -49,6 +49,19 @@ void TIM2_IRQHandler(void){ /* TIM2 Interrupt Handler */
 		if(sys_counter % __tcbs__[current_thread_id].period == 0 && __tcbs__[current_thread_id].status == THREAD_ACTIVE){
 
 
+			/*
+			 * Preempts the currently running thread.
+			 * Gives the periodic thread, the CPU.
+			 * After execution, for "quanta" time, we resume the normal scheduling from where we stopped.
+			 *
+			 * */
+
+			__tcbs__[current_thread_id].next_thread = __current_ptr__->next;
+			__current_ptr__ = &__tcbs__[current_thread_id];
+
+			/* yield the CPU */
+			SysTick->VAL = 0; /* clear SysTick Current Value Register */
+			ICSR |= ICSR_PENDSTSET; /* trigger SysTick */
 
 		}
 	}
