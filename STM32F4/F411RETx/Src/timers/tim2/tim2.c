@@ -27,6 +27,9 @@ void tim2_1ms_interrupt_init(void){
 	TIM2->DIER |= DIER_UIE;	 /*Enable timer interrupt*/
 
 	NVIC_EnableIRQ(TIM2_IRQn); /*Enable timer interrupt in NVIC*/
+	NVIC_SetPriority(TIM2_IRQn,TIM2_PRIO);
+
+
 }
 
 void TIM2_IRQHandler(void){ /* TIM2 Interrupt Handler */
@@ -34,6 +37,8 @@ void TIM2_IRQHandler(void){ /* TIM2 Interrupt Handler */
 	sys_counter = (sys_counter + 1) % ticks_in_1ms; /* Increment this at every millisecond passed */
 
 	TIM2->SR &= ~SR_UIF;	/* clear update interrupt flag */
+
+	__disable_irq();
 
 	for(uint32_t current_thread_id =  min_periodic_thread_id;
 			current_thread_id <= max_periodic_thread_id;
@@ -46,7 +51,9 @@ void TIM2_IRQHandler(void){ /* TIM2 Interrupt Handler */
 		 * This thread shall run for time-period specified to the Round-Robin Scheduler.
 		 *
 		 * */
-		if(sys_counter % __tcbs__[current_thread_id].period == 0 && __tcbs__[current_thread_id].status == THREAD_ACTIVE){
+		if((__tcbs__[current_thread_id].status == THREAD_ACTIVE) &&
+		   (__tcbs__[current_thread_id].period != 0)             &&		/* to avoid division by zero */
+		   (sys_counter % __tcbs__[current_thread_id].period == 0)){
 
 
 			/*
@@ -65,6 +72,8 @@ void TIM2_IRQHandler(void){ /* TIM2 Interrupt Handler */
 
 		}
 	}
+
+	__enable_irq();
 
 
 }

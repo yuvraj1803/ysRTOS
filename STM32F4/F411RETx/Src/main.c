@@ -60,22 +60,36 @@ int main(void)
 	 *
 	 * Time Quanta for the Round-Robin Scheduler is 10 milliseconds(default). To modify change "quanta" in config/config.h
 	 *
-	 * MAX_MSG_ARR is the maximum size of an array which can fit into a message_unit. Refer kernel/mb/mb.c
+
 
 	******************/
+
+	/*
+	 * DEFAULT CONFIGURATIONS
+	 *
+	 * -> LED ENABLED
+	 * -> UART ENABLED
+	 * -> TIM2 ENABLED
+	 * -> MAX_THREADS = 5
+	 * -> MAX_PERIODIC_THREADS = 5
+	 * -> STACK SIZE = 400 BYTES
+	 * -> TIME QUANTA FOR RR-SCHEDULER = 10 MILLISECONDS
+	 *
+	 * -> CPU CLOCK = 16Mhz
+	 *
+	 * */
 
 
 
 
 	__init__(); /* ysRTOS initialisation */
 
-
 	/* Add all your threads below */
 
 	 add_thread(&pa);
 	 add_thread(&pb);
-	 add_periodic_thread(&on,1);
-	 add_periodic_thread(&off,200);
+	 add_periodic_thread(&on,50);
+	 add_periodic_thread(&off,130);
 
 	/*  */
 

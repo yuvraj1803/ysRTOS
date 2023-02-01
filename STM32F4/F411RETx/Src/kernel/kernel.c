@@ -17,6 +17,9 @@
 #define CTRL_COUNTFLAG		(1U << 16)
 #define CTRL_RESET				0
 
+/* System Handler Priority Register 3 */
+#define SHPR3				*((volatile uint32_t * ) 0xE000ED20)
+
 
 
 
@@ -76,29 +79,33 @@ void stk_init(uint32_t thread_id){
 		/* TCB_STACK[i][STACK_SIZE-2] => PC */
 
 		/*
+		 *
 		// DUMMY STACK CONTENT
-		TCB_STACK[THREAD_NO][STACK_SIZE-3] = 0xAAAAAAAA; // LR
-		TCB_STACK[THREAD_NO][STACK_SIZE-4] = 0xAAAAAAAA; // R12
-		TCB_STACK[THREAD_NO][STACK_SIZE-5] = 0xAAAAAAAA; // R3
-		TCB_STACK[THREAD_NO][STACK_SIZE-6] = 0xAAAAAAAA; // R2
-		TCB_STACK[THREAD_NO][STACK_SIZE-7] = 0xAAAAAAAA; // R1
-		TCB_STACK[THREAD_NO][STACK_SIZE-8] = 0xAAAAAAAA; // R0
+		TCB_STACK[thread_id][STACK_SIZE-3] = 0xFFFFFFFF; // LR
+		TCB_STACK[thread_id][STACK_SIZE-4] = 0xFFFFFFFF; // R12
+		TCB_STACK[thread_id][STACK_SIZE-5] = 0xFFFFFFFF; // R3
+		TCB_STACK[thread_id][STACK_SIZE-6] = 0xFFFFFFFF; // R2
+		TCB_STACK[thread_id][STACK_SIZE-7] = 0xFFFFFFFF; // R1
+		TCB_STACK[thread_id][STACK_SIZE-8] = 0xFFFFFFFF; // R0
 
-		TCB_STACK[THREAD_NO][STACK_SIZE-9] =  0xAAAAAAAA; // R11
-		TCB_STACK[THREAD_NO][STACK_SIZE-10] = 0xAAAAAAAA; // R10
-		TCB_STACK[THREAD_NO][STACK_SIZE-11] = 0xAAAAAAAA; // R9
-		TCB_STACK[THREAD_NO][STACK_SIZE-12] = 0xAAAAAAAA; // R8
-		TCB_STACK[THREAD_NO][STACK_SIZE-13] = 0xAAAAAAAA; // R7
-		TCB_STACK[THREAD_NO][STACK_SIZE-14] = 0xAAAAAAAA; // R6
-		TCB_STACK[THREAD_NO][STACK_SIZE-15] = 0xAAAAAAAA; // R5
-		TCB_STACK[THREAD_NO][STACK_SIZE-16] = 0xAAAAAAAA; // R4
+		TCB_STACK[thread_id][STACK_SIZE-9] =  0xFFFFFFFF; // R11
+		TCB_STACK[thread_id][STACK_SIZE-10] = 0xFFFFFFFF; // R10
+		TCB_STACK[thread_id][STACK_SIZE-11] = 0xFFFFFFFF; // R9
+		TCB_STACK[thread_id][STACK_SIZE-12] = 0xFFFFFFFF; // R8
+		TCB_STACK[thread_id][STACK_SIZE-13] = 0xFFFFFFFF; // R7
+		TCB_STACK[thread_id][STACK_SIZE-14] = 0xFFFFFFFF; // R6
+		TCB_STACK[thread_id][STACK_SIZE-15] = 0xFFFFFFFF; // R5
+		TCB_STACK[thread_id][STACK_SIZE-16] = 0xFFFFFFFF; // R4
 
+
+		/*
 			(FOR DEBUGGING PURPOSES)
 		*/
 
 }
 
 void kernel_launch(void){
+
 
 		/*
 		 *
@@ -114,7 +121,8 @@ void kernel_launch(void){
 		SysTick -> VAL = 0; /* clear SysTick current value register */
 		SysTick -> LOAD = (quanta * MILLIS_PRESCALER - 1); /* Load the quanta factored into milliseconds into the SysTick LOAD register */
 
-		NVIC_SetPriority(SysTick_IRQn, 15); /* Set SysTick to low-priority */
+		NVIC_SetPriority(SysTick_IRQn, SYSTICK_PRIO); /* Set SysTick to low-priority */
+		NVIC_SetPriority(PendSV_IRQn,  PENDSV_PRIO); /* Set  PendSV to high-priority */
 
 		SysTick -> CTRL |= (CTRL_CLKSRC | CTRL_ENABLE); /* enable SysTick and select internal clock */
 		SysTick -> CTRL |= CTRL_TICKINT; /* Enable interrupts */
@@ -123,9 +131,23 @@ void kernel_launch(void){
 		/*
 		 * We will need to configure SysTick before we initialise TIM2
 		 *
-		 * TIM2_IRQHandler shall be using SysTick_Handler to perform the context switch.
+		 * TIM2_IRQHandler shall be using SysTick_Handler (indirectly) to perform the context switch.
 		 *
 		 * */
+
+
+
+		/*
+		 * We disable global interrupts here.
+		 *
+		 * This is done to stop TIM2_IRQHandler interrupting the scheduler launching process.
+		 *
+		 * Global interrupts are re-enabled in scheduler_launch() function.
+		 *
+		 * */
+
+		__disable_irq();
+
 
 		if(__TIM2_INIT__ == 0x1){
 
@@ -138,7 +160,13 @@ void kernel_launch(void){
 					tim2_1ms_interrupt_init();
 		}
 
+
+
 		scheduler_launch();
+
+
+
+
 }
 
 void add_thread(void (*thread)(void)){
@@ -153,7 +181,7 @@ void add_thread(void (*thread)(void)){
 
 	__tcbs__[thread_id].sleeptime = 0;
 	__tcbs__[thread_id].thread_id = thread_id;
-	__tcbs__[thread_id].period = 0;
+	__tcbs__[thread_id].period = 0xffffffff; /* non periodic threads */
 	__tcbs__[thread_id].status = THREAD_ACTIVE;
 
 	stk_init(thread_id); /* initialise the stack */
@@ -214,7 +242,6 @@ void add_periodic_thread(void (*pthread)(void), uint32_t period){
 
 
 }
-
 
 
 

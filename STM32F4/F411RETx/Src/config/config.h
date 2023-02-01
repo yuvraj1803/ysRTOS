@@ -25,7 +25,7 @@ enum ERR{
 
 /* Flags for initialising device drivers (0x1 -> Enable, else Disable) [DISABLED ON DEFAULT]*/
 #define __LED_INIT__	 0x1
-#define __UART_INIT__	 0x0
+#define __UART_INIT__	 0x1
 /*
  * * All periodic threads rely on the TIM2_IRQHandler.
    * Be very careful when modifying the value of __TIM2_INIT__ -> Enables TIM2 timer.
@@ -40,6 +40,17 @@ enum ERR{
 #define quanta			 		10  /* time quanta for the round robin scheduler in milliseconds */
 #define MAX_MSG_ARR		 		100
 #define ticks_in_1ms 			16000; /* Number of clock ticks in one millisecond */
+
+/* Interrupt Handler Priorities
+ *
+ * Note: The priorities are arranged in increasing order.
+ * 		 Going against it can cause unexpected outcomes, which may be difficult to debug.
+ *
+ *  */
+#define SYSTICK_PRIO		15
+#define TIM2_PRIO			7
+#define PENDSV_PRIO			0
+
 
 
 /* Misc. flags used in the kernel */

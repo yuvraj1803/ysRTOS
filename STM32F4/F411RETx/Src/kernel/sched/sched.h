@@ -15,7 +15,8 @@
 
 
 void scheduler_launch(void);
-__attribute__((naked)) void SysTick_Handler(void);
+void SysTick_Handler(void);
+__attribute__((naked)) void PendSV_Handler(void);
 void cpu_yeild(void);
 
 
