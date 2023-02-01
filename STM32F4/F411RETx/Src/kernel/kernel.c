@@ -29,6 +29,7 @@ void add_thread(void (*thread)(void));
 TCB __tcbs__[MAX_THREADS + MAX_PERIODIC_THREADS]; /* Thread control blocks */
 
 TCB * __current_ptr__; /* pointer to currently executing thread */
+TCB * __current_periodic_ptr__; /* pointer to currenly executing periodic thread */
 
 int32_t TCB_STACK[MAX_THREADS + MAX_PERIODIC_THREADS][STACK_SIZE];
 uint32_t MILLIS_PRESCALER;

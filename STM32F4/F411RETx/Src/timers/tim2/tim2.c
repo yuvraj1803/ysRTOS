@@ -56,7 +56,7 @@ void TIM2_IRQHandler(void){ /* TIM2 Interrupt Handler */
 			 *
 			 * */
 
-			__tcbs__[current_thread_id].next_thread = __current_ptr__->next;
+			__tcbs__[current_thread_id].next_thread = __current_ptr__->next_thread;
 			__current_ptr__ = &__tcbs__[current_thread_id];
 
 			/* yield the CPU */

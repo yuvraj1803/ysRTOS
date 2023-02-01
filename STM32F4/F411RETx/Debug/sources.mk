@@ -21,6 +21,7 @@ C_DEPS :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
+Src/drivers/ADC \
 Src/drivers/LED \
 Src/drivers/UART \
 Src/init \

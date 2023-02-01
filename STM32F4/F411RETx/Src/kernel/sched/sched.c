@@ -13,7 +13,7 @@
 /*	Interrupt Control and State Register	*/
 #define	ICSR				*((volatile uint32_t * ) 0xE000ED04)
 #define ICSR_PENDSTSET		(1U << 26)		/* SysTick Exception pending bit */
-
+#define ICSR_PENDSVSET		(1U << 28) 		/* PendSV  Exception pending bit*/
 
 void scheduler_launch(void){
 
@@ -45,12 +45,7 @@ void scheduler_launch(void){
  * */
 
 __attribute__((naked)) void PendSV_Handler(void){
-
-}
-
-__attribute__((naked)) void SysTick_Handler(void){
-
-			/*
+		/*
 			 *  @brief
 			 *  -> Suspends the current thread.
 			 *  -> Saves all the Registers into the thread's stack.
@@ -76,7 +71,15 @@ __attribute__((naked)) void SysTick_Handler(void){
 			__asm("LDR SP,[R1]");			/* update SP from address of r1 i.e. SP = cur__current_ptr__rentptr-> stackptr */
 			__asm("POP {R4-R11}");			/* restore r4-r11 */
 			__asm("CPSIE I");				/* enable global interrupts */
-			__asm("BX LR");					/* return from exception and restore r0,r1,r2,r3,sp,lr,pc,psr */
+			__asm("BX LR");					/* return from exception and restore r0,r1,r2,r3,sp,lr,pc,psr
+
+			 */
+}
+
+__attribute__((naked)) void SysTick_Handler(void){
+
+	ICSR |= ICSR_PENDSVSET; /* Trigger the PendSV interrupt handler to perform the context switch.*/
+
 }
 
 

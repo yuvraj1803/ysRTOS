@@ -18,6 +18,7 @@ RM := rm -rf
 -include Src/init/subdir.mk
 -include Src/drivers/UART/subdir.mk
 -include Src/drivers/LED/subdir.mk
+-include Src/drivers/ADC/subdir.mk
 -include Src/subdir.mk
 -include objects.mk
 
