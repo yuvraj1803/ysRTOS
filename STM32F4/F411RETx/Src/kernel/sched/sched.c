@@ -40,9 +40,13 @@ void scheduler_launch(void){
 }
 
 /*
- * Context switch is performed by the SysTick Handler.
+ * Context switch is performed by the SysTick Handler(indirectly) which calls the PendSV handler.
  *
  * */
+
+__attribute__((naked)) void PendSV_Handler(void){
+
+}
 
 __attribute__((naked)) void SysTick_Handler(void){
 
@@ -66,10 +70,6 @@ __attribute__((naked)) void SysTick_Handler(void){
 			__asm("STR SP,[R1]");		/* store SP into r1 i.e. add SP to TCB*/
 
 			/* CHOOSE NEXT THREAD */
-	//
-	//		__asm("push {r0-lr}");
-	//		__asm("bl osSchedulerPeriodic"); // for the periodic scheduler
-	//		__asm("pop {r0-lr}");
 
 			__asm("LDR R1,[R1,#4]");		/* load r1 from 4 bytes above r1 i.e. r1 = __current_ptr__->next */
 			__asm("STR R1,[R0]");			/* store r1 at address equals r0 i.e. __current_ptr__ = r1 */
