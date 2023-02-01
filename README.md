@@ -7,6 +7,9 @@
  I suggest using STM32Cube IDE for making things a lot easier.
 
  **Setup**
+ 
+ *(CMSIS can be found at ysRTOS/STM32F4/F411RETx)*
+ 
  1. Goto Project > Properties > Paths and Symbols > Includes
   
   ----------------------------------------------------------------------------------------
@@ -47,3 +50,10 @@
   *                - Initialises the ysRTOS-kernel.
   *                - Adds threads.
   *                - Launches the kernel.
+
+  # Reserved Hardware
+  
+  Some hardware components in the STM32F4 board are reserved for operating-system services.
+  
+      * LED:     GPIOA PIN5 (PA5)
+      * UART Tx: GPIOA PIN2 (PA2)
