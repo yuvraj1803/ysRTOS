@@ -70,6 +70,7 @@ int main(void)
 	 * -> LED ENABLED
 	 * -> UART ENABLED
 	 * -> TIM2 ENABLED
+	 * -> ADC1 DISABLED
 	 * -> MAX_THREADS = 5
 	 * -> MAX_PERIODIC_THREADS = 5
 	 * -> STACK SIZE = 400 BYTES

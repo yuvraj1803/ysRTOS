@@ -26,6 +26,7 @@ enum ERR{
 /* Flags for initialising device drivers (0x1 -> Enable, else Disable) [DISABLED ON DEFAULT]*/
 #define __LED_INIT__	 0x1
 #define __UART_INIT__	 0x1
+#define __ADC_INIT__ 	 0x0
 /*
  * * All periodic threads rely on the TIM2_IRQHandler.
    * Be very careful when modifying the value of __TIM2_INIT__ -> Enables TIM2 timer.

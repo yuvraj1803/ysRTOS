@@ -3,4 +3,6 @@
 
 #include "stm32f4xx.h"
 
+void adc1_init(void);
+
 #endif

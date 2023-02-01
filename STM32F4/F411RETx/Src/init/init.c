@@ -22,6 +22,10 @@ void __init__(void){
 		UART_INIT();
 	}
 
+	if(__ADC_INIT__ == 0x1){
+		adc1_init();
+	}
+
 
 
 
