@@ -1,6 +1,7 @@
 # Implementation Notes
 
  + config/config.h has flags that direct the ysRTOS initialisation process.
+ + init/ contains the main RTOS initialisation functions which read the config.h file and set up drivers and the scheduler.
  + The same TCB structure has been used to implement Aperiodic and Periodic Threads. But the TCB[] array has been partitioned to avoid overlapping.
  + TIM2 timer is used to implement Periodic Threads, this generates an interrupt every 1 millisecond. (Check TIM2_IRQHandler)
  + ADC1 has 16 channels and the sequence in which they are serviced can be modified. ENABLE_ADC1_SEQ and DISABLE_ADC1_SEQ can be used to modify the service sequence.
@@ -63,6 +64,7 @@
       * LED:     GPIOA PIN5 (PA5)
       * UART Tx: GPIOA PIN2 (PA2)
       * ADC1   : GPIOA PIN1 (PA1)
+      * EXTI13 : GPIOA PIN3 (PA3)
       * SysTick Timer
       * PendSV Interrupt Service
       * TIM2 Timer (used to manage Periodic Threads)
