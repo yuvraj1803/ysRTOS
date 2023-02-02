@@ -23,7 +23,7 @@ void __init__(void){
 	}
 
 	if(__ADC_INIT__ == 0x1){
-		adc1_init();
+		ADC1_INIT();
 	}
 
 

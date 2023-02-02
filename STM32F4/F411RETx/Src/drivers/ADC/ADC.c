@@ -10,7 +10,7 @@
  */
 
 
-void adc1_init(void){
+void ADC1_INIT(void){
 
 	RCC->AHB1ENR |= 1; /* enable clock for GPIOA */
 	GPIOA->MODER |= 0xC; /* set pin 1 as analog */
@@ -23,7 +23,7 @@ void adc1_init(void){
 
 }
 
-uint32_t adc1_read(void){
+uint32_t ADC1_READ(void){
 
 	ADC1->CR2 |= 0x40000000; /* begin conversation */
 

@@ -100,9 +100,9 @@ Discarded input sections
  .text          0x0000000000000000        0x0 ./Src/drivers/ADC/ADC.o
  .data          0x0000000000000000        0x0 ./Src/drivers/ADC/ADC.o
  .bss           0x0000000000000000        0x0 ./Src/drivers/ADC/ADC.o
- .text.adc1_init
+ .text.ADC1_INIT
                 0x0000000000000000       0x5c ./Src/drivers/ADC/ADC.o
- .text.adc1_read
+ .text.ADC1_READ
                 0x0000000000000000       0x30 ./Src/drivers/ADC/ADC.o
  .debug_info    0x0000000000000000      0x46f ./Src/drivers/ADC/ADC.o
  .debug_abbrev  0x0000000000000000       0xfc ./Src/drivers/ADC/ADC.o
