@@ -1,4 +1,4 @@
 ../Src/kernel/sched/sched.c:19:6:scheduler_launch	4	static,ignoring_inline_asm
 ../Src/kernel/sched/sched.c:48:29:PendSV_Handler	0	static
 ../Src/kernel/sched/sched.c:56:29:SysTick_Handler	0	static,ignoring_inline_asm
-../Src/kernel/sched/sched.c:95:6:cpu_yield	4	static
+../Src/kernel/sched/sched.c:92:6:cpu_yield	4	static

@@ -75,9 +75,6 @@ __attribute__((naked)) void SysTick_Handler(void){
 		__asm("STR SP,[R1]");		/* store SP into r1 i.e. add SP to TCB*/
 
 
-		/* Check if any periodic thread is waiting, if so, load it in instead */
-
-
 		/* CHOOSE NEXT THREAD */
 
 		__asm("LDR R1,[R1,#4]");		/* load r1 from 4 bytes above r1 i.e. r1 = __current_ptr__->next */

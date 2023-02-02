@@ -10,9 +10,8 @@ Src/main.o: ../Src/main.c ../Src/config/config.h ../Src/init/init.h \
  ../Src/init/../drivers/LED/LED.h ../Src/init/../drivers/UART/UART.h \
  ../Src/init/../drivers/ADC/ADC.h ../Src/init/../config/config.h \
  ../Src/init/../kernel/kernel.h ../Src/init/../kernel/../config/config.h \
- ../Src/init/../kernel/tm/tcb/tcb.h \
- ../Src/init/../kernel/tm/tcb/../../mb/mb.h \
- ../Src/init/../kernel/tm/tcb/../../mb/../../config/config.h \
+ ../Src/init/../kernel/tcb/tcb.h ../Src/init/../kernel/tcb/../mb/mb.h \
+ ../Src/init/../kernel/tcb/../mb/../../config/config.h \
  ../Src/init/../kernel/sched/sched.h \
  ../Src/init/../kernel/../timers/tim2/tim2.h \
  ../Src/init/../kernel/../timers/tim2/../../kernel/kernel.h \
@@ -33,9 +32,9 @@ Src/main.o: ../Src/main.c ../Src/config/config.h ../Src/init/init.h \
 ../Src/init/../config/config.h:
 ../Src/init/../kernel/kernel.h:
 ../Src/init/../kernel/../config/config.h:
-../Src/init/../kernel/tm/tcb/tcb.h:
-../Src/init/../kernel/tm/tcb/../../mb/mb.h:
-../Src/init/../kernel/tm/tcb/../../mb/../../config/config.h:
+../Src/init/../kernel/tcb/tcb.h:
+../Src/init/../kernel/tcb/../mb/mb.h:
+../Src/init/../kernel/tcb/../mb/../../config/config.h:
 ../Src/init/../kernel/sched/sched.h:
 ../Src/init/../kernel/../timers/tim2/tim2.h:
 ../Src/init/../kernel/../timers/tim2/../../kernel/kernel.h:

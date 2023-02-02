@@ -89,8 +89,8 @@ int main(void)
 
 	 add_thread(&pa);
 	 add_thread(&pb);
-	 add_periodic_thread(&on,50);
-	 add_periodic_thread(&off,130);
+//	 add_periodic_thread(&on,50);
+//	 add_periodic_thread(&off,130);
 
 	/*  */
 

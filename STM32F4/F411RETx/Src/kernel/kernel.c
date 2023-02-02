@@ -98,7 +98,6 @@ void stk_init(uint32_t thread_id){
 		TCB_STACK[thread_id][STACK_SIZE-16] = 0xFFFFFFFF; // R4
 
 
-		/*
 			(FOR DEBUGGING PURPOSES)
 		*/
 

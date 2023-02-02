@@ -13,7 +13,7 @@
 
 #include "stm32f4xx.h"
 #include "../config/config.h"
-#include "tm/tcb/tcb.h"
+#include "tcb/tcb.h"
 #include "sched/sched.h"
 #include "../timers/tim2/tim2.h"
 

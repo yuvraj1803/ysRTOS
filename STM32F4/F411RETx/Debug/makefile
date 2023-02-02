@@ -11,7 +11,7 @@ RM := rm -rf
 -include sources.mk
 -include Startup/subdir.mk
 -include Src/timers/tim2/subdir.mk
--include Src/kernel/tm/sem/subdir.mk
+-include Src/kernel/sem/subdir.mk
 -include Src/kernel/sched/subdir.mk
 -include Src/kernel/mb/subdir.mk
 -include Src/kernel/subdir.mk

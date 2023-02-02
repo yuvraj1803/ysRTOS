@@ -28,7 +28,7 @@ Src/init \
 Src/kernel \
 Src/kernel/mb \
 Src/kernel/sched \
-Src/kernel/tm/sem \
+Src/kernel/sem \
 Src \
 Src/timers/tim2 \
 Startup \

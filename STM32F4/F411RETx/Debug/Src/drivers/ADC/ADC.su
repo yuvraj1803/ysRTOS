@@ -1,2 +1,2 @@
-../Src/drivers/ADC/ADC.c:4:6:adc1_init	4	static
-../Src/drivers/ADC/ADC.c:17:10:adc1_read	4	static
+../Src/drivers/ADC/ADC.c:13:6:adc1_init	4	static
+../Src/drivers/ADC/ADC.c:26:10:adc1_read	4	static

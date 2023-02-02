@@ -13,7 +13,7 @@
 #define __TCB_H__
 
 #include "stm32f4xx.h"
-#include "../../mb/mb.h"
+#include "../mb/mb.h"
 
 /*
  *
