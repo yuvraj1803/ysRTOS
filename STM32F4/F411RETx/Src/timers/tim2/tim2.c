@@ -20,7 +20,7 @@ void tim2_1ms_interrupt_init(void){
 
 	RCC -> APB1ENR |= TIM2EN; /*enable clock access to tim2*/
 
-	TIM2->PSC = 16000 - 1;	 /*Set timer prescaler*/
+	TIM2->PSC = 1600 - 1;	 /*Set timer prescaler*/
 	TIM2->ARR = 10 - 1;	 	/*Set auto-reload value*/
 	TIM2->CNT = 0;			 /*clear counter*/
 	TIM2->CR1 = CR1_CEN;     /*Enable TIM2*/
@@ -55,24 +55,12 @@ void TIM2_IRQHandler(void){ /* TIM2 Interrupt Handler */
 		   (__tcbs__[current_thread_id].period != 0)             &&		/* to avoid division by zero */
 		   (sys_counter % __tcbs__[current_thread_id].period == 0)){
 
-
-			/*
-			 * Preempts the currently running thread.
-			 * Gives the periodic thread, the CPU.
-			 * After execution, for "quanta" time, we resume the normal scheduling from where we stopped.
-			 *
-			 * */
-
-			__current_periodic_ptr__ = &__tcbs__[current_thread_id];
-
-			/* yield the CPU */
-			SysTick->VAL = 0; /* clear SysTick Current Value Register */
-			ICSR |= ICSR_PENDSTSET; /* trigger SysTick */
+				SysTick->VAL = SysTick->LOAD;
+				__tcbs__[current_thread_id].periodic_task();
 
 		}
 	}
 
 	__enable_irq();
-
 
 }

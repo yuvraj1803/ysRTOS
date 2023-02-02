@@ -18,7 +18,7 @@ void LED_INIT(void){
 
 	/* set pin 5 in GPIOA as output pin */
 	GPIOA -> MODER |= (1U << 10);
-	GPIOA -> MODER &= ~(1U << 10);
+	GPIOA -> MODER &= ~(1U << 11);
 
 }
 

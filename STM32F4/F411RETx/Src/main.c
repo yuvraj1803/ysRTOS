@@ -23,7 +23,6 @@ int y = 0;
 
 void pa(void){
 
-		GPIOA->ODR ^= (1U << 3);
 }
 
 void pb(void){
@@ -32,11 +31,12 @@ void pb(void){
 	}
 }
 
+
 void on(void){
-	x++;
+	LED_ON();
 }
 void off(void){
-	y++;
+	LED_OFF();
 }
 
 
@@ -90,10 +90,10 @@ int main(void)
 
 	/* Add all your threads below */
 
-	 add_thread(&pa);
-	 add_thread(&pb);
-//	 add_periodic_thread(&on,50);
-//	 add_periodic_thread(&off,130);
+//	 add_thread(&on);
+//	 add_thread(&pb);
+	 add_periodic_thread(&on,500);
+	 add_periodic_thread(&off,130);
 
 	/*  */
 

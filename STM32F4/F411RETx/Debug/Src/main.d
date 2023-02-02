@@ -13,8 +13,11 @@ Src/main.o: ../Src/main.c ../Src/config/config.h ../Src/init/init.h \
  ../Src/init/../kernel/tcb/tcb.h ../Src/init/../kernel/tcb/../mb/mb.h \
  ../Src/init/../kernel/tcb/../mb/../../config/config.h \
  ../Src/init/../kernel/sched/sched.h \
+ ../Src/init/../kernel/sched/../../config/config.h \
+ ../Src/init/../kernel/sched/../kernel.h \
  ../Src/init/../kernel/../timers/tim2/tim2.h \
  ../Src/init/../kernel/../timers/tim2/../../kernel/kernel.h \
+ ../Src/init/../kernel/../timers/tim2/../..//kernel/sched/sched.h \
  ../Src/init/../drivers/EXTI/EXTI.h ../Src/drivers/LED/LED.h \
  ../Src/kernel/kernel.h
 ../Src/config/config.h:
@@ -37,8 +40,11 @@ Src/main.o: ../Src/main.c ../Src/config/config.h ../Src/init/init.h \
 ../Src/init/../kernel/tcb/../mb/mb.h:
 ../Src/init/../kernel/tcb/../mb/../../config/config.h:
 ../Src/init/../kernel/sched/sched.h:
+../Src/init/../kernel/sched/../../config/config.h:
+../Src/init/../kernel/sched/../kernel.h:
 ../Src/init/../kernel/../timers/tim2/tim2.h:
 ../Src/init/../kernel/../timers/tim2/../../kernel/kernel.h:
+../Src/init/../kernel/../timers/tim2/../..//kernel/sched/sched.h:
 ../Src/init/../drivers/EXTI/EXTI.h:
 ../Src/drivers/LED/LED.h:
 ../Src/kernel/kernel.h:

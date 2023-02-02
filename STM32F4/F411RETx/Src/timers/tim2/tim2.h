@@ -3,7 +3,7 @@
 
 #include "stm32f4xx.h"
 #include "../../kernel/kernel.h"
-
+#include "../..//kernel/sched/sched.h"
 
 void tim2_1ms_interrupt_init(void);
 

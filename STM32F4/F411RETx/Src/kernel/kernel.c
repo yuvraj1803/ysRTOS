@@ -32,7 +32,6 @@ void add_thread(void (*thread)(void));
 TCB __tcbs__[MAX_THREADS + MAX_PERIODIC_THREADS]; /* Thread control blocks */
 
 TCB * __current_ptr__; /* pointer to currently executing thread */
-TCB * __current_periodic_ptr__; /* pointer to currenly executing periodic thread */
 
 int32_t TCB_STACK[MAX_THREADS + MAX_PERIODIC_THREADS][STACK_SIZE];
 uint32_t MILLIS_PRESCALER;
@@ -47,10 +46,17 @@ uint32_t max_periodic_thread_id;
 
 uint32_t sys_counter;          /* Keeps track of number of milliseconds elapsed. Handled by TIM2*/
 
+
 /*
  * Note: Thread ID is simply the index of the TCB_STACK in which the thread's content is stored.
  * */
 
+void _loop_(void){
+	/*
+	 * If no threads are given, __current_ptr__ shall point at this function and run here until 'something' is done ;)
+	 * */
+	while(1){}
+}
 
 void kernel_init(void){
 	MILLIS_PRESCALER = (BUS_FREQ/1000); /*  for scaling milliseconds relative to the clock frequency.  */
@@ -66,6 +72,7 @@ void kernel_init(void){
 	recently_added_thread_id = min_thread_id - 1; /* no threads active currently */
 	recently_added_periodic_thread_id = min_periodic_thread_id - 1; /* no periodic threads active currently */
 
+	__current_ptr__ = NULL;
 
 }
 
@@ -160,6 +167,10 @@ void kernel_launch(void){
 		}
 
 
+		if(__current_ptr__ == NULL){
+			/* no threads specified, we spin in an infinite loop until processor is taken away */
+			add_thread(&_loop_);
+		}
 
 		scheduler_launch();
 
@@ -182,6 +193,7 @@ void add_thread(void (*thread)(void)){
 	__tcbs__[thread_id].thread_id = thread_id;
 	__tcbs__[thread_id].period = 0xffffffff; /* non periodic threads */
 	__tcbs__[thread_id].status = THREAD_ACTIVE;
+	__tcbs__[thread_id].periodic_task = NULL;
 
 	stk_init(thread_id); /* initialise the stack */
 	TCB_STACK[thread_id][STACK_SIZE - 2] = (uint32_t) thread;  /* set the program counter to thread function's address */
@@ -230,6 +242,7 @@ void add_periodic_thread(void (*pthread)(void), uint32_t period){
 	__tcbs__[pthread_id].thread_id = pthread_id;
 	__tcbs__[pthread_id].period = period;
 	__tcbs__[pthread_id].status = THREAD_ACTIVE;
+	__tcbs__[pthread_id].periodic_task = pthread;
 
 	stk_init(pthread_id);
 	TCB_STACK[pthread_id][STACK_SIZE-2] = (uint32_t) pthread;

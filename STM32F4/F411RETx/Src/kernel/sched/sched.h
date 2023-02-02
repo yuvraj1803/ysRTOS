@@ -12,12 +12,17 @@
 #define	__SCHED_H__
 
 #include "stm32f4xx.h"
+#include "../../config/config.h"
+#include "../kernel.h"
 
 
 void scheduler_launch(void);
+
 void SysTick_Handler(void);
 __attribute__((naked)) void PendSV_Handler(void);
+
 void cpu_yeild(void);
+
 
 
 #endif

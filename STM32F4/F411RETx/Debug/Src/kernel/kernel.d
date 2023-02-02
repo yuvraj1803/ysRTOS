@@ -10,8 +10,10 @@ Src/kernel/kernel.o: ../Src/kernel/kernel.c ../Src/kernel/kernel.h \
  ../Src/kernel/../config/config.h ../Src/kernel/tcb/tcb.h \
  ../Src/kernel/tcb/../mb/mb.h \
  ../Src/kernel/tcb/../mb/../../config/config.h \
- ../Src/kernel/sched/sched.h ../Src/kernel/../timers/tim2/tim2.h \
- ../Src/kernel/../timers/tim2/../../kernel/kernel.h
+ ../Src/kernel/sched/sched.h ../Src/kernel/sched/../../config/config.h \
+ ../Src/kernel/sched/../kernel.h ../Src/kernel/../timers/tim2/tim2.h \
+ ../Src/kernel/../timers/tim2/../../kernel/kernel.h \
+ ../Src/kernel/../timers/tim2/../..//kernel/sched/sched.h
 ../Src/kernel/kernel.h:
 /Users/boju/Desktop/ysRTOS/ysRTOS/STM32F4/F411RETx/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h:
 /Users/boju/Desktop/ysRTOS/ysRTOS/STM32F4/F411RETx/CMSIS/Device/ST/STM32F4xx/Include/stm32f411xe.h:
@@ -26,5 +28,8 @@ Src/kernel/kernel.o: ../Src/kernel/kernel.c ../Src/kernel/kernel.h \
 ../Src/kernel/tcb/../mb/mb.h:
 ../Src/kernel/tcb/../mb/../../config/config.h:
 ../Src/kernel/sched/sched.h:
+../Src/kernel/sched/../../config/config.h:
+../Src/kernel/sched/../kernel.h:
 ../Src/kernel/../timers/tim2/tim2.h:
 ../Src/kernel/../timers/tim2/../../kernel/kernel.h:
+../Src/kernel/../timers/tim2/../..//kernel/sched/sched.h:

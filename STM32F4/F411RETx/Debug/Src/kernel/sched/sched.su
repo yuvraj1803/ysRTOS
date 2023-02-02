@@ -1,5 +1,4 @@
-../Src/kernel/sched/sched.c:22:6:scheduler_launch	4	static,ignoring_inline_asm
-../Src/kernel/sched/sched.c:51:29:PendSV_Handler	0	static
-../Src/kernel/sched/sched.c:59:6:EXTI15_10_IRQHandler	4	static
-../Src/kernel/sched/sched.c:64:29:SysTick_Handler	0	static,ignoring_inline_asm
-../Src/kernel/sched/sched.c:100:6:cpu_yield	4	static
+../Src/kernel/sched/sched.c:19:6:scheduler_launch	4	static,ignoring_inline_asm
+../Src/kernel/sched/sched.c:48:29:PendSV_Handler	0	static
+../Src/kernel/sched/sched.c:58:29:SysTick_Handler	0	static,ignoring_inline_asm
+../Src/kernel/sched/sched.c:94:6:cpu_yield	4	static

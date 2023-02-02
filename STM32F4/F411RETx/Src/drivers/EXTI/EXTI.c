@@ -14,6 +14,7 @@
 #define EXTI13_PIN				3
 #define EXTI_IMR_MR13		(1U << 13)
 #define EXTI_FTSR_TR13		(1U << 13)
+#define EXTI_PR13			(1U << 13)
 
 void EXTI13_INIT(void){
 
