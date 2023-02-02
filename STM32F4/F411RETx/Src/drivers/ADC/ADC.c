@@ -32,7 +32,7 @@ void ADC1_INIT(void){
 
 uint32_t ADC1_READ(void){
 
-	ADC1->CR2 |= ADC1CONV; /* begin conversation */
+	ADC1->CR2 |= ADC1SWSTART; /* begin conversation */
 
 	while(!(ADC1->SR & ADC1EOC)){} /* wait for conversation to complete */
 
