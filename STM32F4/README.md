@@ -63,6 +63,7 @@
       * LED:     GPIOA PIN5 (PA5)
       * UART Tx: GPIOA PIN2 (PA2)
       * ADC1   : GPIOA PIN1 (PA1)
+      * EXTI13 : GPIOA PIN3 (PA3)
       * SysTick Timer
       * PendSV Interrupt Service
       * TIM2 Timer (used to manage Periodic Threads)
