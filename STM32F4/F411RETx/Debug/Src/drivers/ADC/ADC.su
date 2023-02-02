@@ -1,0 +1,4 @@
+../Src/drivers/ADC/ADC.c:20:6:ADC1_INIT	4	static
+../Src/drivers/ADC/ADC.c:33:10:ADC1_READ	4	static
+../Src/drivers/ADC/ADC.c:44:6:ENABLE_ADC1_SEQ	16	static
+../Src/drivers/ADC/ADC.c:48:6:DISABLE_ADC1_SEQ	16	static

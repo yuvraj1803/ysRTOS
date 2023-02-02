@@ -15,7 +15,8 @@ Src/main.o: ../Src/main.c ../Src/config/config.h ../Src/init/init.h \
  ../Src/init/../kernel/sched/sched.h \
  ../Src/init/../kernel/../timers/tim2/tim2.h \
  ../Src/init/../kernel/../timers/tim2/../../kernel/kernel.h \
- ../Src/drivers/LED/LED.h ../Src/kernel/kernel.h
+ ../Src/init/../drivers/EXTI/EXTI.h ../Src/drivers/LED/LED.h \
+ ../Src/kernel/kernel.h
 ../Src/config/config.h:
 ../Src/init/init.h:
 /Users/boju/Desktop/ysRTOS/ysRTOS/STM32F4/F411RETx/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h:
@@ -38,5 +39,6 @@ Src/main.o: ../Src/main.c ../Src/config/config.h ../Src/init/init.h \
 ../Src/init/../kernel/sched/sched.h:
 ../Src/init/../kernel/../timers/tim2/tim2.h:
 ../Src/init/../kernel/../timers/tim2/../../kernel/kernel.h:
+../Src/init/../drivers/EXTI/EXTI.h:
 ../Src/drivers/LED/LED.h:
 ../Src/kernel/kernel.h:

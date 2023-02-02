@@ -26,6 +26,10 @@ void __init__(void){
 		ADC1_INIT();
 	}
 
+	if(__EXTI_13_INIT__ == 0x1){
+		EXTI13_INIT();
+	}
+
 
 
 

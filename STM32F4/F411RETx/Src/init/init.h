@@ -18,6 +18,8 @@
 #include "../drivers/ADC/ADC.h"
 #include "../config/config.h"
 #include "../kernel/kernel.h"
+#include "../drivers/EXTI/EXTI.h"
+
 
 
 void __init__(void);

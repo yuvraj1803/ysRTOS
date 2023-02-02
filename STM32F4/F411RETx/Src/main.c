@@ -18,11 +18,12 @@
 
 int a = 0;
 int b = 0;
+int x = 0;
+int y = 0;
 
 void pa(void){
-	while(1){
-		a++;
-	}
+
+		GPIOA->ODR ^= (1U << 3);
 }
 
 void pb(void){
@@ -32,10 +33,10 @@ void pb(void){
 }
 
 void on(void){
-	LED_ON();
+	x++;
 }
 void off(void){
-	LED_OFF();
+	y++;
 }
 
 
@@ -67,10 +68,12 @@ int main(void)
 	/*
 	 * DEFAULT CONFIGURATIONS
 	 *
-	 * -> LED ENABLED
-	 * -> UART ENABLED
-	 * -> TIM2 ENABLED
-	 * -> ADC1 DISABLED
+	 * -> LED    ENABLED
+	 * -> UART   ENABLED
+	 * -> TIM2   ENABLED
+	 * -> ADC1 	 DISABLED
+	 * -> EXTI13 DISABLED
+	 *
 	 * -> MAX_THREADS = 5
 	 * -> MAX_PERIODIC_THREADS = 5
 	 * -> STACK SIZE = 400 BYTES

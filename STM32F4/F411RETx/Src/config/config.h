@@ -33,6 +33,8 @@ enum ERR{
  */
 #define __TIM2_INIT__	 0x1
 
+#define __EXTI_13_INIT__ 0x0
+
 /* Kernel flags and variables (Default values) */
 #define MAX_THREADS 	 		5
 #define MAX_PERIODIC_THREADS 	5
