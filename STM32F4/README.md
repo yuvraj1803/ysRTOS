@@ -1,3 +1,10 @@
+# Implementation Notes
+
+ + config/config.h has flags that direct the ysRTOS initialisation process.
+ + The same TCB structure has been used to implement Aperiodic and Periodic Threads. But the TCB[] array has been partitioned to avoid overlapping.
+ + TIM2 timer is used to implement Periodic Threads, this generates an interrupt every 1 millisecond. (Check TIM2_IRQHandler)
+ + ADC1 has 16 channels and the sequence in which they are serviced can be modified. ENABLE_ADC1_SEQ and DISABLE_ADC1_SEQ can be used to modify the service sequence.
+
 # Setting Up
  
  I suggest using STM32Cube IDE for making things a lot easier.
