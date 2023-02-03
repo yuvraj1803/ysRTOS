@@ -134,13 +134,7 @@ void kernel_launch(void){
 		SysTick -> CTRL |= CTRL_TICKINT; /* Enable interrupts */
 
 
-		/*
-		 * We will need to configure SysTick before we initialise TIM2
-		 *
-		 * TIM2_IRQHandler shall be using SysTick_Handler (indirectly) to perform the context switch.
-		 *
-		 * */
-
+		
 
 
 		/*
