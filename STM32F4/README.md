@@ -5,6 +5,7 @@
  + The same TCB structure has been used to implement Aperiodic and Periodic Threads. But the TCB[] array has been partitioned to avoid overlapping.
  + TIM2 timer is used to implement Periodic Threads, this generates an interrupt every 1 millisecond. (Check TIM2_IRQHandler)
  + ADC1 has 16 channels and the sequence in which they are serviced can be modified. ENABLE_ADC1_SEQ and DISABLE_ADC1_SEQ can be used to modify the service sequence.
+ + EXTI13 initialisation functions are included, which is connected to GPIOA Pin 3 by default. Interrupt is triggered on falling edge. User is free to modify input pin keeping in mind, some other service isn't using that pin at that moment.
 
 # Setting Up
  
