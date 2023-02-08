@@ -33,7 +33,7 @@ void pb(void){
 
 
 void on(void){
-	LED_ON();
+	x++;
 }
 void off(void){
 	LED_OFF();
@@ -92,7 +92,7 @@ int main(void)
 
 //	 add_thread(&on);
 //	 add_thread(&pb);
-	 add_periodic_thread(&on,500);
+	 add_periodic_thread(&on,500	);
 	 add_periodic_thread(&off,130);
 
 	/*  */
