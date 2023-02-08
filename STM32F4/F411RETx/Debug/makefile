@@ -10,6 +10,7 @@ RM := rm -rf
 # All of the sources participating in the build are defined here
 -include sources.mk
 -include Startup/subdir.mk
+-include Src/ysAPI/subdir.mk
 -include Src/timers/tim2/subdir.mk
 -include Src/kernel/sem/subdir.mk
 -include Src/kernel/sched/subdir.mk

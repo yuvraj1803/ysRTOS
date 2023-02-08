@@ -11,4 +11,5 @@
 "./Src/syscalls.o"
 "./Src/sysmem.o"
 "./Src/timers/tim2/tim2.o"
+"./Src/ysAPI/ysRTOS.o"
 "./Startup/startup_stm32f411retx.o"

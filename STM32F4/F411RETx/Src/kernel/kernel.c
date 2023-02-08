@@ -26,7 +26,8 @@
 void kernel_init(void);
 void stk_init(uint32_t);
 void kernel_launch(void);
-void add_thread(void (*thread)(void));
+tid_t add_thread(void (*thread)(void));
+tid_t add_periodic_thread(void (*pthread)(void), uint32_t period);
 
 
 TCB __tcbs__[MAX_THREADS + MAX_PERIODIC_THREADS]; /* Thread control blocks */
@@ -173,7 +174,7 @@ void kernel_launch(void){
 
 }
 
-void add_thread(void (*thread)(void)){
+tid_t add_thread(void (*thread)(void)){
 	if(recently_added_thread_id == max_thread_id){
 		fprintf(stderr,"Cannot add thread %p, max thread limit reached",&thread);
 		exit(__ADD_THREAD_FAILURE__);
@@ -208,9 +209,11 @@ void add_thread(void (*thread)(void)){
 	__enable_irq(); /* Enable global interrupts */
 
 
+	return thread_id;
+
 }
 
-void add_periodic_thread(void (*pthread)(void), uint32_t period){
+tid_t add_periodic_thread(void (*pthread)(void), uint32_t period){
 	/* pthread has nothing to do with posix threads.
 	 *
 	 * uint32_t period is measured in milliseconds.
@@ -246,6 +249,7 @@ void add_periodic_thread(void (*pthread)(void), uint32_t period){
 	__enable_irq();
 
 
+	return pthread_id;
 
 }
 

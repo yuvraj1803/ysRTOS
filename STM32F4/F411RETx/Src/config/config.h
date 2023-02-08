@@ -19,6 +19,13 @@ enum ERR{
 	__ADD_PERIODIC_THREAD_FAILURE__
 };
 
+/*
+ * TYPES
+ *
+ * */
+
+typedef uint32_t tid_t; /* Thread id represented by a 32-bit unsigned integer*/
+
 
 /* All values you see assigned to the flags are the DEFAULT values */
 /* Use the ysRTOS configuration API defined in config/config.c to manipulate them */

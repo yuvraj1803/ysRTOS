@@ -1,5 +1,5 @@
 ../Src/main.c:24:6:pa	4	static
 ../Src/main.c:28:6:pb	4	static
-../Src/main.c:35:6:on	8	static
+../Src/main.c:35:6:on	4	static
 ../Src/main.c:38:6:off	8	static
 ../Src/main.c:43:5:main	8	static

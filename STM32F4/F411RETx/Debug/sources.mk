@@ -32,5 +32,6 @@ Src/kernel/sched \
 Src/kernel/sem \
 Src \
 Src/timers/tim2 \
+Src/ysAPI \
 Startup \
 
