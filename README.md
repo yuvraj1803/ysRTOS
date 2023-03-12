@@ -5,3 +5,8 @@
 
 # Boards Supported
  + STM32F411REx
+# ysRTOS Kernel API Documentation
+ + Threads and Scheduling
+   + tid_t osAddThread(void (*thread)(void)) => creates a thread and returns its thread id.
+   + tid_t osAddPeriodicThread(void (*thread)(void), uint32_t period) => creates a thread which runs once every 'period' milliseconds. Returns its thread id.
+   
