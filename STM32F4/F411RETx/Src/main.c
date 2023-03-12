@@ -15,6 +15,7 @@
 #include "init/init.h"
 #include "drivers/LED/LED.h"
 #include "kernel/kernel.h"
+#include "ysAPI/ysRTOS.h"
 
 int a = 0;
 int b = 0;
@@ -22,18 +23,18 @@ int x = 0;
 int y = 0;
 
 void pa(void){
-
+		a++;
 }
 
 void pb(void){
-	while(1){
+
 		b++;
-	}
+
 }
 
 
 void on(void){
-	x++;
+	LED_ON();
 }
 void off(void){
 	LED_OFF();
@@ -92,10 +93,14 @@ int main(void)
 
 //	 add_thread(&on);
 //	 add_thread(&pb);
-	 add_periodic_thread(&on,500	);
-	 add_periodic_thread(&off,130);
+//	 add_periodic_thread(&pa,500);
+//	 add_periodic_thread(&pb,1000);
 
 	/*  */
+
+	osAddPeriodicThread(&on,100);
+	osAddPeriodicThread(&off,1000);
+
 
 	kernel_launch();
 

@@ -21,6 +21,24 @@
 #define SHPR3				*((volatile uint32_t * ) 0xE000ED20)
 
 
+/*
+ * We define a resource as a component of the board which can be accessed by one or more threads at
+ * a given instance (at the same time).
+ *
+ * Defined below are semaphores for all the resources.
+ *
+ * */
+
+/*I decided to define the semaphores here instead of the respective driver files
+ * to keep the code more organised.
+ * */
+
+/* Initialised to 0 as none of them have been initialised at this moment in time */
+uint32_t * LED_sem 	= 0;
+uint32_t * UART_sem = 0;
+uint32_t * ADC1_sem = 0;
+uint32_t * TIM2_sem	= 0;
+
 
 
 void kernel_init(void);

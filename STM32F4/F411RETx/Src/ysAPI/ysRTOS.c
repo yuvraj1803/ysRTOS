@@ -22,3 +22,19 @@ tid_t osAddPeriodicThread(void (*thread)(void), uint32_t period){
 	return thread_id;
 
 }
+
+void osSemaphoreGive(uint32_t * semaphore){
+	semaphore_give(semaphore);
+}
+
+void osSemaphoreWait(uint32_t * semaphore){
+	semaphore_wait(semaphore);
+}
+
+void osSemaphoreInit(uint32_t * semaphore, uint32_t value){
+	semaphore_init(semaphore, value);
+}
+
+void osLEDOn(){
+
+}

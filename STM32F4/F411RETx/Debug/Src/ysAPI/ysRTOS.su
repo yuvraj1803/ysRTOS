@@ -1,2 +1,6 @@
 ../Src/ysAPI/ysRTOS.c:4:7:osAddThread	24	static
 ../Src/ysAPI/ysRTOS.c:18:7:osAddPeriodicThread	24	static
+../Src/ysAPI/ysRTOS.c:26:6:osSemaphoreGive	16	static
+../Src/ysAPI/ysRTOS.c:30:6:osSemaphoreWait	16	static
+../Src/ysAPI/ysRTOS.c:34:6:osSemaphoreInit	16	static
+../Src/ysAPI/ysRTOS.c:38:6:osLEDOn	4	static
