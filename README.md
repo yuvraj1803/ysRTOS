@@ -9,4 +9,7 @@
  + Threads and Scheduling
    + tid_t osAddThread(void (*thread)(void)) => creates a thread and returns its thread id.
    + tid_t osAddPeriodicThread(void (*thread)(void), uint32_t period) => creates a thread which runs once every 'period' milliseconds. Returns its thread id.
+   + void osSemaphoreGive(uint32_t * semaphore) => increments given semaphore
+   + void osSemaphoreWait(uint32_t * semaphore) => waits in a spin-lock for a given semaphore
+   + void osSemaphoreInit(uint32_t * semaphore, uint32_t value) => initialised a given semaphore with a given value.
    
