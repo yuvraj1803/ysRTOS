@@ -13,6 +13,9 @@
 
 #include "stm32f4xx.h"
 
+#define LED_PIN		(1U << 5) /* Using Pin 5 in GPIOA as LED_PIN */
+
+
 void LED_INIT(void);
 void LED_ON(void);
 void LED_OFF(void);

@@ -50,4 +50,6 @@ void EXTI13_INIT(void){
 void EXTI15_10_IRQHandler(void){
 
 	EXTI->PR |= EXTI_PR13;
+
+
 }

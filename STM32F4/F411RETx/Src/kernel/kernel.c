@@ -33,11 +33,10 @@
  * to keep the code more organised.
  * */
 
-/* Initialised to 0 as none of them have been initialised at this moment in time */
-uint32_t * LED_sem 	= 0;
-uint32_t * UART_sem = 0;
-uint32_t * ADC1_sem = 0;
-uint32_t * TIM2_sem	= 0;
+uint32_t LED_sem;
+uint32_t UART_sem;
+uint32_t ADC1_sem;
+uint32_t TIM2_sem;
 
 
 
@@ -78,6 +77,15 @@ void _loop_(void){
 }
 
 void kernel_init(void){
+
+	/* Semaphore initialisation*/
+
+	semaphore_init(&LED_sem,  0);
+	semaphore_init(&UART_sem, 0);
+	semaphore_init(&ADC1_sem, 0);
+	semaphore_init(&TIM2_sem, 0);
+
+	/* -- */
 	MILLIS_PRESCALER = (BUS_FREQ/1000); /*  for scaling milliseconds relative to the clock frequency.  */
 
 	sys_counter = 0; /* reset */
