@@ -1,6 +1,6 @@
-../Src/drivers/UART/UART.c:36:5:__io_putchar	16	static
-../Src/drivers/UART/UART.c:43:6:UART_INIT	8	static
-../Src/drivers/UART/UART.c:47:6:uart_tx_init	8	static
-../Src/drivers/UART/UART.c:72:13:uart_write	16	static
-../Src/drivers/UART/UART.c:81:13:set_uart_baudrate	24	static
-../Src/drivers/UART/UART.c:85:17:compute_uart_baudrate	16	static
+../Src/drivers/UART/UART.c:37:5:__io_putchar	16	static
+../Src/drivers/UART/UART.c:45:6:UART_INIT	8	static
+../Src/drivers/UART/UART.c:49:6:uart_tx_init	8	static
+../Src/drivers/UART/UART.c:74:6:uart_write	16	static
+../Src/drivers/UART/UART.c:87:6:set_uart_baudrate	24	static
+../Src/drivers/UART/UART.c:91:10:compute_uart_baudrate	16	static

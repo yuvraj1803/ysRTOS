@@ -18,6 +18,7 @@
  *
  * */
 
+
 void semaphore_give(uint32_t * sem){
 	__disable_irq();
 	*sem += 1;
@@ -30,10 +31,11 @@ void semaphore_wait(uint32_t * sem){
 	while(*sem <= 0){
 		__disable_irq(); /* Spin lock */
 
-		cpu_yeild(); /* give back the CPU */
+//		cpu_yeild(); /* give back the CPU */
 
 		__enable_irq();
 	}
+	*sem -= 1;
 
 	__enable_irq();
 }

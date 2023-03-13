@@ -28,12 +28,14 @@
 
 #define SR_TXE			(1U << 7)
 
-static void set_uart_baudrate(uint32_t periph_clk, uint32_t baudrate);
-static uint32_t compute_uart_baudrate(uint32_t periph_clk, uint32_t baudrate);
-static void uart_write(int ch);
+void set_uart_baudrate(uint32_t periph_clk, uint32_t baudrate);
+uint32_t compute_uart_baudrate(uint32_t periph_clk, uint32_t baudrate);
+void uart_write(int ch);
 void uart_tx_init(void);
 
+
 int __io_putchar(int ch){ /* defined in syscalls.c */
+
 	uart_write(ch);
 
 	return ch;
@@ -69,19 +71,23 @@ void uart_tx_init(void){
 
 }
 
-static void uart_write(int ch){
+void uart_write(int ch){
+
 
 	while(!(USART2 -> SR & SR_TXE)){} /* Wait until transmit data register is empty */
 
 	/* write to transmit data register */
 
 	USART2 -> DR = (ch & 0xFF); /* set only 8 bits as the remaining bits are reserved. (read datasheet) */
+
+
+
 }
 
-static void set_uart_baudrate(uint32_t periph_clk, uint32_t baudrate){
+void set_uart_baudrate(uint32_t periph_clk, uint32_t baudrate){
 	USART2 -> BRR = compute_uart_baudrate(periph_clk, baudrate);
 }
 
-static uint32_t compute_uart_baudrate(uint32_t periph_clk, uint32_t baudrate){
+uint32_t compute_uart_baudrate(uint32_t periph_clk, uint32_t baudrate){
 	return ((periph_clk + (baudrate/2U))/baudrate);
 }

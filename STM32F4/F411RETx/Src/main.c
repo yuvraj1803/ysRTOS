@@ -11,9 +11,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#include "config/config.h"
 #include "init/init.h"
-#include "drivers/LED/LED.h"
 #include "kernel/kernel.h"
 #include "ysAPI/ysRTOS.h"
 
@@ -75,6 +73,7 @@ int main(void)
 //	 osAddPeriodicThread(&thread4,1000);
 
 	/*  */
+
 
 
 

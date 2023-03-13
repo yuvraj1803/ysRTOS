@@ -21,6 +21,12 @@
 #define SHPR3				*((volatile uint32_t * ) 0xE000ED20)
 
 
+/*	Interrupt Control and State Register	*/
+#define	ICSR				*((volatile uint32_t * ) 0xE000ED04)
+#define ICSR_PENDSTSET		(1U << 26)		/* SysTick Exception pending bit */
+#define ICSR_PENDSVSET		(1U << 28) 		/* PendSV  Exception pending bit*/
+
+
 /*
  * We define a resource as a component of the board which can be accessed by one or more threads at
  * a given instance (at the same time).
@@ -69,6 +75,17 @@ uint32_t sys_counter;          /* Keeps track of number of milliseconds elapsed.
  * Note: Thread ID is simply the index of the TCB_STACK in which the thread's content is stored.
  * */
 
+void cpu_yield(void){
+
+	/* Voluntarily gives back the CPU to the next thread. */
+
+
+		SysTick->VAL = 0; /* clear SysTick Current Value Register */
+		ICSR |= ICSR_PENDSTSET; /* trigger SysTick */
+
+}
+
+
 void _loop_(void){
 	/*
 	 * If no threads are given, __current_ptr__ shall point at this function and run here until 'something' is done ;)
@@ -80,10 +97,10 @@ void kernel_init(void){
 
 	/* Semaphore initialisation*/
 
-	semaphore_init(&LED_sem,  0);
-	semaphore_init(&UART_sem, 0);
-	semaphore_init(&ADC1_sem, 0);
-	semaphore_init(&TIM2_sem, 0);
+	semaphore_init(&LED_sem,  1);
+	semaphore_init(&UART_sem, 1);
+	semaphore_init(&ADC1_sem, 1);
+	semaphore_init(&TIM2_sem, 1);
 
 	/* -- */
 	MILLIS_PRESCALER = (BUS_FREQ/1000); /*  for scaling milliseconds relative to the clock frequency.  */

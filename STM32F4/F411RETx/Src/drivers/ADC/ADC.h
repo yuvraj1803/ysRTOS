@@ -13,5 +13,6 @@
  */
 
 void ADC1_INIT(void);
+uint32_t ADC1_READ(void);
 
 #endif

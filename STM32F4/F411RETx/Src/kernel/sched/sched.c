@@ -10,11 +10,6 @@
 
 #include "sched.h"
 
-/*	Interrupt Control and State Register	*/
-#define	ICSR				*((volatile uint32_t * ) 0xE000ED04)
-#define ICSR_PENDSTSET		(1U << 26)		/* SysTick Exception pending bit */
-#define ICSR_PENDSVSET		(1U << 28) 		/* PendSV  Exception pending bit*/
-
 
 void scheduler_launch(void){
 
@@ -91,12 +86,4 @@ __attribute__((naked)) void SysTick_Handler(void){
 }
 
 
-void cpu_yield(void){
 
-	/* Voluntarily gives back the CPU to the next thread. */
-
-
-		SysTick->VAL = 0; /* clear SysTick Current Value Register */
-		ICSR |= ICSR_PENDSTSET; /* trigger SysTick */
-
-}

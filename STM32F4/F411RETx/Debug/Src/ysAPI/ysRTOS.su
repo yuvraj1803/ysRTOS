@@ -4,5 +4,6 @@
 ../Src/ysAPI/ysRTOS.c:30:6:osSemaphoreWait	16	static
 ../Src/ysAPI/ysRTOS.c:34:6:osSemaphoreInit	16	static
 ../Src/ysAPI/ysRTOS.c:38:6:osLEDOn	8	static
-../Src/ysAPI/ysRTOS.c:48:6:osLEDOff	8	static
-../Src/ysAPI/ysRTOS.c:57:6:osLEDToggle	8	static
+../Src/ysAPI/ysRTOS.c:54:6:osLEDOff	8	static
+../Src/ysAPI/ysRTOS.c:70:6:osLEDToggle	8	static
+../Src/ysAPI/ysRTOS.c:89:10:osADCRead	8	static

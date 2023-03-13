@@ -23,8 +23,6 @@ void osLEDOn(void);
 void osLEDOff(void);
 void osLEDToggle(void);
 
-void osUARTWrite(int ch);
-
 uint32_t osADCRead(void);
 
 #endif

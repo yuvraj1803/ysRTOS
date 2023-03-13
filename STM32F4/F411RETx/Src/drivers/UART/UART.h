@@ -12,9 +12,11 @@
 
 
 #include "stm32f4xx.h"
+#include "../../kernel/kernel.h"
+#include "../../kernel/sem/semaphore.h"
 
 void UART_INIT(void);
-static void uart_write(int ch);
+void uart_write(int ch);
 
 
 #endif

@@ -16,9 +16,11 @@
 #include "tcb/tcb.h"
 #include "sched/sched.h"
 #include "../timers/tim2/tim2.h"
+#include "sem/semaphore.h"
 
 #include <stdlib.h>
 
+void cpu_yeild(void);
 void kernel_init(void);
 void stk_init(uint32_t thread_id);
 void kernel_launch(void);
@@ -33,6 +35,9 @@ extern TCB * __current_periodic_ptr__;
 
 extern uint32_t sys_counter;
 
-
+extern uint32_t LED_sem;
+extern uint32_t UART_sem;
+extern uint32_t ADC1_sem;
+extern uint32_t TIM2_sem;
 
 #endif

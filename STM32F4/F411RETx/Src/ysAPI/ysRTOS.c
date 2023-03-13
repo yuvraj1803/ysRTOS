@@ -85,18 +85,6 @@ void osLEDToggle(void){
 
 }
 
-void osUARTWrite(int ch){
-	if(__UART_INIT__ == 0){
-		fprintf(stderr, "[FAILED] UART Driver Uninitialised");
-		exit(__LED_DRIVER_UNINITIALISED__);
-	}
-
-	osSemaphoreWait(&UART_sem);
-
-	uart_write(ch);
-
-	osSemaphoreGive(&UART_sem);
-}
 
 uint32_t osADCRead(void){
 	if(__ADC_INIT__ == 0){
