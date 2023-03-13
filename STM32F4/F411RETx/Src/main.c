@@ -17,28 +17,6 @@
 #include "kernel/kernel.h"
 #include "ysAPI/ysRTOS.h"
 
-int a = 0;
-int b = 0;
-int x = 0;
-int y = 0;
-
-void pa(void){
-		a++;
-}
-
-void pb(void){
-
-		b++;
-
-}
-
-
-void on(void){
-	LED_ON();
-}
-void off(void){
-	LED_OFF();
-}
 
 
 int main(void)
@@ -91,15 +69,14 @@ int main(void)
 
 	/* Add all your threads below */
 
-//	 add_thread(&on);
-//	 add_thread(&pb);
-//	 add_periodic_thread(&pa,500);
-//	 add_periodic_thread(&pb,1000);
+//	 osAddThread(&thread1);
+//	 osAddThread(&thread2);
+//	 osAddPeriodicThread(&thread3,500);
+//	 osAddPeriodicThread(&thread4,1000);
 
 	/*  */
 
-	osAddPeriodicThread(&on,100);
-	osAddPeriodicThread(&off,1000);
+
 
 
 	kernel_launch();
