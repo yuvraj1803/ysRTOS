@@ -13,3 +13,8 @@
    + void osSemaphoreWait(uint32_t * semaphore) => waits in a spin-lock for a given semaphore
    + void osSemaphoreInit(uint32_t * semaphore, uint32_t value) => initialises a given semaphore with a given value.
    
+# How To Use
+   + Download the latest release.
+   + Create an empty STM32 project in your STM32 IDE(preferred).
+   + Replace the Src folder in your project directory with the Src folder in the downloaded file.
+   + Write your driver code in main.c
