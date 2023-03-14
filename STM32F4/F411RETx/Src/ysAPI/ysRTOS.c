@@ -73,15 +73,11 @@ void osLEDToggle(void){
 			exit(__LED_DRIVER_UNINITIALISED__);
 	}
 
-	osSemaphoreWait(&LED_sem);
-
 	if(GPIOA->ODR & LED_PIN){ /* If LED is ON*/
 		osLEDOff();
 	}else{
 		osLEDOn();
 	}
-
-	osSemaphoreGive(&LED_sem);
 
 }
 

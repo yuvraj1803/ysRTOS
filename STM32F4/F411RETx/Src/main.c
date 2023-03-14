@@ -15,8 +15,6 @@
 #include "kernel/kernel.h"
 #include "ysAPI/ysRTOS.h"
 
-
-
 int main(void)
 {
 
@@ -73,8 +71,6 @@ int main(void)
 //	 osAddPeriodicThread(&thread4,1000);
 
 	/*  */
-
-
 
 
 
