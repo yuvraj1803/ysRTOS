@@ -5,6 +5,10 @@
 
 # Boards Supported
  + STM32F411REx
+
+# RTOS Design and Architecture
+ <img width="701" alt="block" src="https://user-images.githubusercontent.com/37622719/225209069-dfd4d340-ec9f-4a02-9e83-299d854d40e7.png">
+
 # ysRTOS Kernel API Documentation
  + Threads and Scheduling
    + tid_t osAddThread(void (*thread)(void)) => creates a thread and returns its thread id.
