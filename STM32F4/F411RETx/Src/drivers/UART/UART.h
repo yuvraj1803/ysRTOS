@@ -7,6 +7,12 @@
  ******************************************************************************
  */
 
+/*
+ *
+ * Copyright (c) 2023 Yuvraj Sakshith <ysakshith@gmail.com>
+ *
+ */
+
 #ifndef __UART_H__
 #define __UART_H__
 

@@ -7,6 +7,12 @@
  ******************************************************************************
  */
 
+/*
+ *
+ * Copyright (c) 2023 Yuvraj Sakshith <ysakshith@gmail.com>
+ *
+ */
+
 #ifndef __CONFIG_H__
 #define __CONFIG_H__
 

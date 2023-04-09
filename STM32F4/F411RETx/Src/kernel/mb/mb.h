@@ -7,6 +7,12 @@
  ******************************************************************************
  */
 
+/*
+ *
+ * Copyright (c) 2023 Yuvraj Sakshith <ysakshith@gmail.com>
+ *
+ */
+
 #include "../../config/config.h"
 
 #ifndef __MB_H__

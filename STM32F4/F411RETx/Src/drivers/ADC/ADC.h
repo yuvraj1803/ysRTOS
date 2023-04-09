@@ -12,6 +12,12 @@
  ******************************************************************************
  */
 
+/*
+ *
+ * Copyright (c) 2023 Yuvraj Sakshith <ysakshith@gmail.com>
+ *
+ */
+
 void ADC1_INIT(void);
 uint32_t ADC1_READ(void);
 

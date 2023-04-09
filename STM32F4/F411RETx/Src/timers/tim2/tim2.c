@@ -1,9 +1,17 @@
+/*
+ *
+ * Copyright (c) 2023 Yuvraj Sakshith <ysakshith@gmail.com>
+ *
+ */
+
+
 #include "tim2.h"
 
 #define TIM2EN				(1U << 0)
 #define	CR1_CEN				(1U << 0)
 #define DIER_UIE			(1U << 0)
 #define SR_UIF				(1U << 0)
+
 
 /*	Interrupt Control and State Register	*/
 #define	ICSR				*((volatile uint32_t * ) 0xE000ED04)

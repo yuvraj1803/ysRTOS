@@ -7,6 +7,12 @@
  ******************************************************************************
  */
 
+/*
+ *
+ * Copyright (c) 2023 Yuvraj Sakshith <ysakshith@gmail.com>
+ *
+ */
+
 #ifndef __LED_H__
 #define __LED_H__
 

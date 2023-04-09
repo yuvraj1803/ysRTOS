@@ -7,6 +7,12 @@
  ******************************************************************************
  */
 
+/*
+ *
+ * Copyright (c) 2023 Yuvraj Sakshith <ysakshith@gmail.com>
+ *
+ */
+
 #include "LED.h"
 
 #define GPIOAEN		(1U << 0) /* GPIOA Clock Access Enable Bit */

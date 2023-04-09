@@ -8,6 +8,12 @@
  ******************************************************************************
  */
 
+/*
+ *
+ * Copyright (c) 2023 Yuvraj Sakshith <ysakshith@gmail.com>
+ *
+ */
+
 #ifndef __KERNEL_H__
 #define __KERNEL_H__
 

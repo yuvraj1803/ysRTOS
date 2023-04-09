@@ -10,8 +10,9 @@
 
 /*
  *
+ * Copyright (c) 2023 Yuvraj Sakshith <ysakshith@gmail.com>
  *
- * */
+ */
 #ifndef __MB_H__
 #define __MB_H__
 

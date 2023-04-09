@@ -9,6 +9,12 @@
  ******************************************************************************
  */
 
+/*
+ *
+ * Copyright (c) 2023 Yuvraj Sakshith <ysakshith@gmail.com>
+ *
+ */
+
 #define GPIOAEN		(1U << 0)
 
 #define ADC1EN		(1U << 8);
